@@ -1,4 +1,4 @@
-package consoleApplication;
+package ru.grusha.factory;
 
 import java.math.BigInteger;
 import java.security.SecureRandom;
@@ -7,7 +7,15 @@ import java.util.Date;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Generator {
+import ru.grusha.exeption.DocumentExistsExeption;
+import ru.grusha.model.Document;
+import ru.grusha.model.Incoming;
+import ru.grusha.model.Outgoing;
+import ru.grusha.model.Task;
+import ru.grusha.storage.DocumentStorage;
+import ru.grusha.storage.NameStorage;
+
+public class Factory {
 	
 	public static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.mm.dd");//формат вывода даты
 	
@@ -22,11 +30,11 @@ public class Generator {
 		return document;	 
 	}
 	 
-	public Document MakeDocument(String kind) throws DocumentExistsExeption{ 
+	public Document createDocument(String kind) throws DocumentExistsExeption{ 
 		int registrationNumber=(int)(Math.random()*1000000);//генерация регистрационного номера
 		DocumentStorage.check(DocumentStorage.data, registrationNumber);//проверка, существует ли уже документ с таким номером
-		Document document = createDocument(kind);
-		document.registrationNumber=registrationNumber;
+		Document document = createDocumentOfCertainKind(kind);
+		document.setRegistrationNumber(registrationNumber);
 		makeCommonFields(document);
 		DocumentStorage.data.add(document);
 		return document;    	
@@ -34,12 +42,12 @@ public class Generator {
 	
 	//генерация идентификатора
 	public void generateID(Document document){
-		document.ID=String.format("%.0f%n",(Math.random()*10000));    
+		document.setID(String.format("%.0f%n",(Math.random()*10000)));    
 	}
      
 	//случайный выбор автора документа
 	public void author(Document document){
-		document.author=NameStorage.author[new Random().nextInt(5)];
+		document.setAuthor(NameStorage.author[new Random().nextInt(5)]);
 	}
         
 	//метод для генерации случайных строк
@@ -52,12 +60,12 @@ public class Generator {
            
 	//генерация текста документа
 	public void text(Document document){
-		document.text=generateString(16);            
+		document.setText(generateString(16));            
 	}
     
 	//генерация регистрационного номера        
 	public void name(Document document){
-		document.name="Название документа";
+		document.setName("Название документа");
 	}
     
 	//определение типа документа    
@@ -87,13 +95,13 @@ public class Generator {
     
 	//генерация даты регистрации
 	public void registrationDate(Document document){
-		document.registrationDate=RandomDate();
+		document.setRegistrationDate(RandomDate());
 	}
     
 	//создание экземпляров документа заданного типа    
-	public static Document createDocument(String kind){            
+	public static Document createDocumentOfCertainKind(String kind){            
 		switch (kind){                 
-		case "Task": return TaskGenerator.createTask();
+		case "Task": return TaskFactory.createTask();
 		case "Incoming": return IncomingGenerator.createIncoming();
 		case "Outgoing": return OutgoingGenerator.createOutgoing();                 
 		default: return null;            

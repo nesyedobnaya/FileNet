@@ -1,8 +1,12 @@
-package consoleApplication;
+package ru.grusha.factory;
 
 import java.util.Random;
 
-public class IncomingGenerator extends Generator{
+import ru.grusha.model.Document;
+import ru.grusha.model.Incoming;
+import ru.grusha.storage.NameStorage;
+
+public class IncomingGenerator extends Factory{
 	
 	//генерация входящего документа
 	public static Document createIncoming() {
@@ -16,22 +20,22 @@ public class IncomingGenerator extends Generator{
     
 	//генерация исходящей даты регистрации
 	public static void makeOutgoingRegistrationDate(Incoming incoming){
-		incoming.outgoingRegistrationDate=RandomDate();
+		incoming.setOutgoingRegistrationDate(RandomDate());
 	}
     
 	//генерация исходящего регистрационного номера
 	public static void makeOutgoingNumber(Incoming incoming){
-		incoming.outgoingNumber=(int)(Math.random()*10000);
+		incoming.setOutgoingNumber((int)(Math.random()*10000));
 	}
     
 	//случайный выбор отправителя
 	public static void makeSender(Incoming incoming){
-		incoming.sender=NameStorage.sender[new Random().nextInt(5)];
+		incoming.setSender(NameStorage.sender[new Random().nextInt(5)]);
 	}
     
 	//случайный выбор адресата
 	public static void makeAddressee(Incoming incoming){
-		incoming.addressee=NameStorage.addressee[new Random().nextInt(5)];
+		incoming.setAddressee(NameStorage.addressee[new Random().nextInt(5)]);
 	}  
     
 }

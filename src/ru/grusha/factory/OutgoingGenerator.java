@@ -1,8 +1,12 @@
-package consoleApplication;
+package ru.grusha.factory;
 
 import java.util.Random;
 
-public class OutgoingGenerator extends Generator{
+import ru.grusha.model.Document;
+import ru.grusha.model.Outgoing;
+import ru.grusha.storage.NameStorage;
+
+public class OutgoingGenerator extends Factory{
 	
 	public static String[] delivery = {"Курьер", "Факс", "Электронная почта"};
 
@@ -16,11 +20,11 @@ public class OutgoingGenerator extends Generator{
     
 	//случайный выбор адресата
 	public static void makeOutgoingAddressee(Outgoing outgoing){
-		outgoing.addressee=NameStorage.addressee[new Random().nextInt(5)];
+		outgoing.setAddressee(NameStorage.addressee[new Random().nextInt(5)]);
 	}
     
 	//случайный выбор способа доставки
 	public static void makeDelivery(Outgoing outgoing){    	
-		outgoing.delivery=delivery[new Random().nextInt(3)];
+		outgoing.setDelivery(delivery[new Random().nextInt(3)]);
 	}   
 }
