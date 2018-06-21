@@ -9,12 +9,12 @@ public class Outgoing extends Document {
     @Override
 	public String toString() {
     	return "Исходящий документ №"+registrationNumber
-    		+" ID: " + ID 
-    		+ " " + name 
-    		+ " Дата регистрации: " + registrationDate 
+    		+ ", ID: " + ID 
+    		+ ", Название: " + name 
+    		+ ", Дата регистрации: " + registrationDate 
     		+ ", Автор: " + author 
-    		+ " Текст документа: "+text
-    		+" Адресат: "+addressee
-    		+" Способ доставки: "+delivery;       
+    		+ ", Текст документа: " + text
+    		+ ", Адресат: " + addressee
+    		+ ", Способ доставки: " + delivery;       
 	}
 }
