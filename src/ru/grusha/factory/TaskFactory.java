@@ -22,7 +22,7 @@ public class TaskFactory extends Factory{
     
 	//генерация даты выдачи/
 	public static void makeDeliveryDate(Task task){
-		task.setDeliveryDate(RandomDate());
+		task.setDeliveryDate(FactoryUtil.RandomDate());
 	}
     
 	//генерация срока исполнения задания/

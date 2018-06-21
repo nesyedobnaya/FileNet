@@ -16,4 +16,6 @@ public class NameStorage {
 	
 	public static String[] controller = {"Антонов Н.В.", "Пелевин А.Р.", "Зощенко Е.А.", 
 			"Керн А.Р.", "Шевчук Н.Л."};
+	
+	public static String[] delivery = {"Курьер", "Факс", "Электронная почта"};
 }

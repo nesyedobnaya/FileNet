@@ -32,7 +32,7 @@ public class Console {
 		for (String a: setOfAuthors) {
 			System.out.println(" - "+a);        	        	
 			for (Document e: DocumentStorage.data) {
-				if (a==e.getAuthor()) {
+				if (a.equals(e.getAuthor())) {
 					System.out.println("\t- "+Factory.type(e)
 						+" от "+Factory.dateFormat.format(e.getRegistrationDate()) 
 						+ " №" + e.getRegistrationNumber());
