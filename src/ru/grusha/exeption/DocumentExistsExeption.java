@@ -1,4 +1,4 @@
-package consoleApplication;
+package ru.grusha.exeption;
 
 public class DocumentExistsExeption extends Exception{ 
 	

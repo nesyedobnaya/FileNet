@@ -1,4 +1,4 @@
-package consoleApplication;
+package ru.grusha.storage;
 
 public class NameStorage {
 	

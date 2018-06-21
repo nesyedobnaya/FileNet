@@ -1,8 +1,12 @@
-package consoleApplication;
+package ru.grusha.factory;
 
 import java.util.Random;
 
-public class TaskGenerator extends Generator{
+import ru.grusha.model.Document;
+import ru.grusha.model.Task;
+import ru.grusha.storage.NameStorage;
+
+public class TaskFactory extends Factory{
 	
 	public static String[] controleAttribute = {"Выдано", "В процессе", "Исполнено"};
 	
@@ -18,26 +22,26 @@ public class TaskGenerator extends Generator{
     
 	//генерация даты выдачи/
 	public static void makeDeliveryDate(Task task){
-		task.deliveryDate=RandomDate();
+		task.setDeliveryDate(RandomDate());
 	}
     
 	//генерация срока исполнения задания/
 	public static void makeDueDate(Task task){
-		task.dueDate=task.deliveryDate;//срок исполнения не может быть раньше даты выдачи    	
+		task.setDueDate(task.getDeliveryDate());//срок исполнения не может быть раньше даты выдачи    	
 	}
     
 	//случайный выбор исполнителя получения
 	public static void makeExecutor(Task task){    	
-		task.executor=NameStorage.executor[new Random().nextInt(5)];;
+		task.setExecutor(NameStorage.executor[new Random().nextInt(5)]);;
 	}
     
 	//случайный выбор контролера
 	public static void makeController(Task task){    	
-		task.controller=NameStorage.controller[new Random().nextInt(5)];
+		task.setController(NameStorage.controller[new Random().nextInt(5)]);
 	}
     
 	//генерация признака контрольности
 	public static void makeControleAttribute(Task task){
-		task.controleAttribute=controleAttribute[new Random().nextInt(3)];
+		task.setControleAttribute(controleAttribute[new Random().nextInt(3)]);
 	}      
 }
