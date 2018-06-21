@@ -16,7 +16,7 @@ public class Console {
 		for (int i=0;i<setOfDocuments.length;i++) {        	       	
         	try{
         		Document o=doc.createDocument(setOfDocuments[i]);
-        		System.out.println(o.toString());//вывод полей документа в консоль для проверки
+        		//System.out.println(o.toString());//вывод полей документа в консоль для проверки
         	}catch(DocumentExistsExeption ex){
         		System.out.println(ex.getMessage());	
         	}        	      	    	
