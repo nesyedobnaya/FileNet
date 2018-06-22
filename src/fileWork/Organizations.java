@@ -5,19 +5,19 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name = "people")
-public class People{
+@XmlRootElement(name = "organizations")
+public class Organizations{
 
-	@XmlElement(name = "person")
-	public List<Person> list = null;
- 
-	public void setPeople(List<Person> listPeople) {
-		this.list = listPeople;       
+	@XmlElement(name = "organization")
+	public List<Organization> list = null;
+	
+	public void setOrganizations(List<Organization> listO) {
+		this.list = listO;       
 	}
     
 	public String toString() {
 		String str= "";
-		for(Person prsn : list)
+		for(Organization prsn : list)
 		{			
 			str = str +prsn.toString();	        
 	    }		

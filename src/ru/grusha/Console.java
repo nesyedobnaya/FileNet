@@ -1,7 +1,12 @@
 package ru.grusha;
 
+import java.io.File;
 import java.util.TreeSet;
 
+import fileWork.Departments;
+import fileWork.JaxbParser;
+import fileWork.Organizations;
+import fileWork.People;
 import ru.grusha.exeption.DocumentExistsExeption;
 import ru.grusha.factory.Factory;
 import ru.grusha.model.Document;
@@ -10,6 +15,22 @@ import ru.grusha.storage.DocumentStorage;
 public class Console {
 
 	public static void main(String[] args) throws DocumentExistsExeption {
+		
+		File file1 = new File("D://XML/People.xml");
+		File file2 = new File("D://XML/Organizations.xml");	 	    
+		File file3 = new File("D://XML/Departments.xml");
+		
+		People loadedPeople=new People(); 	    
+		loadedPeople=(People)JaxbParser.unMarshaling(file1, loadedPeople);	        
+		System.out.println(loadedPeople.list.toString()); 			
+		
+		Departments loadedDepartments=new Departments(); 	    
+		loadedDepartments=(Departments)JaxbParser.unMarshaling(file3, loadedDepartments);	        
+		System.out.println(loadedDepartments.list.toString()); 
+		
+		Organizations loadedOrganizations=new Organizations(); 	    
+		loadedOrganizations=(Organizations)JaxbParser.unMarshaling(file2, loadedOrganizations);	        
+		System.out.println(loadedOrganizations.list.toString());
 
 		Factory doc = new Factory();	
 		String setOfDocuments[] = {"Incoming", "Task", "Outgoing", "Incoming", "Task", "Outgoing"}; //список создаваемых документов          
@@ -32,7 +53,7 @@ public class Console {
 		for (String a: setOfAuthors) {
 			System.out.println(" - "+a);        	        	
 			for (Document e: DocumentStorage.data) {
-				if (a==e.getAuthor()) {
+				if (a.equals(e.getAuthor())) {
 					System.out.println("\t- "+Factory.type(e)
 						+" от "+Factory.dateFormat.format(e.getRegistrationDate()) 
 						+ " №" + e.getRegistrationNumber());

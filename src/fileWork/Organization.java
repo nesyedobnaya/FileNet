@@ -1,17 +1,17 @@
 package fileWork;
 
-import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "organization")
 public class Organization {
 	
-	protected String fullName;//полное название
-	protected String shortName;//краткое название
-	protected String chief;//руководитель
-	protected String telephone;//контактные телефоны
+	private String fullName;//полное название
+	private String shortName;//краткое название
+	private String chief;//руководитель
+	private String telephone;//контактные телефоны	
 	
-	@XmlElement
+	@XmlAttribute
 	public void setFullName(String name) {
 		this.fullName = name;
 	}
@@ -20,7 +20,7 @@ public class Organization {
 		return fullName;
 	}
 	
-	@XmlElement
+	@XmlAttribute
 	public void setShortName(String name) {
 		this.shortName = name;
 	}
@@ -29,7 +29,7 @@ public class Organization {
 		return shortName;
 	}
 	
-	@XmlElement
+	@XmlAttribute
 	public void setChief(String name) {
 		this.chief = name;
 	}
@@ -38,12 +38,20 @@ public class Organization {
 		return chief;
 	}
 	
-	@XmlElement
+	@XmlAttribute
 	public void setTelephone(String name) {
 		this.telephone = name;
 	}
 	
 	public String getTelephone() {
 		return telephone;
+	}
+	
+	public String toString() {
+		String str = "Полное название: "+getFullName()
+				+", Краткое название: "+getShortName()
+				+", Руководитель: "+getChief()
+				+", Телефон: "+getTelephone()+" ";	        
+		return str;		  	
 	}
 }
