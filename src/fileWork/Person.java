@@ -1,6 +1,8 @@
 package fileWork;
 
+import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "person")
@@ -11,7 +13,8 @@ public class Person extends Staff{
 	protected String patronymic;//отчество
 	protected String position;//должность
 	
-	@XmlElement
+	//@XmlElementWrapper(name = "person")
+	@XmlAttribute
 	public void setLastName(String name) {
 		this.lastName = name;
 	}
@@ -20,7 +23,7 @@ public class Person extends Staff{
 		return lastName;
 	}
 	
-	@XmlElement
+	@XmlAttribute
 	public void setFirstName(String name) {
 		this.firstName = name;
     }
@@ -29,7 +32,7 @@ public class Person extends Staff{
 		return firstName;
 	}
 
-	@XmlElement
+	@XmlAttribute
 	public void setPatronymic(String name) {
 		this.patronymic = name;
     }
@@ -38,7 +41,7 @@ public class Person extends Staff{
 		return patronymic;
 	}
 	
-	@XmlElement
+	@XmlAttribute
 	public void setPosition(String name) {
 		this.position = name;
     }

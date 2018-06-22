@@ -5,7 +5,7 @@ import java.io.File;
 public class FileCreator {
 	
 	public static void main(String[] args) {
-				
+		/*		
 		Person person = new Person();
 		person.setLastName("Никифоров");
 		person.setFirstName("Виктор");
@@ -13,7 +13,7 @@ public class FileCreator {
 		person.setPosition("Главный бухгалтер");
         
 		JaxbParser parser = new JaxbParser();
-		File file = new File("D://XML/Person.xml");
+		File file = new File("D://XML/People.xml");
         //parser.saveObject(file, person);
         
 		Person loadPerson = (Person) parser.loadObject(file, Person.class);
@@ -45,5 +45,7 @@ public class FileCreator {
 		Department loadDepartment = (Department) parser.loadObject(file3, Department.class);
 		//System.out.println(loadDepartment.fullName + " Сокращенно: " + loadDepartment.shortName 
 		//		+ " Руководитель: " + loadDepartment.chief + " Контактный телефон: " + loadDepartment.telephone);
+	*/
 	}	
+	
 }

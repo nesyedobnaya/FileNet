@@ -10,7 +10,7 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
 public class JaxbParser {	
-	
+	/*
 	public void saveInXml(File file, Object object) throws JAXBException {
 		JAXBContext jaxbContext = JAXBContext.newInstance(object.getClass());
 	    Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
@@ -52,4 +52,5 @@ public class JaxbParser {
         }
 		return null;
 	}
+	*/
 }
