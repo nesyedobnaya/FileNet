@@ -10,11 +10,10 @@ import java.util.concurrent.ThreadLocalRandom;
 import fileWork.JaxbParser;
 import fileWork.People;
 import fileWork.Person;
-import fileWork.Test;
 import ru.grusha.model.Document;
+import ru.grusha.model.Document.DocType;
 import ru.grusha.model.Incoming;
 import ru.grusha.model.Outgoing;
-import ru.grusha.model.Task;
 import ru.grusha.storage.NameStorage;
 
 public class FactoryUtil {
@@ -34,8 +33,7 @@ public class FactoryUtil {
 			File file1 = new File("D://XML/People.xml");
 			people=(People)JaxbParser.unMarshaling(file1, people);
 			p =people.list.get(new Random().nextInt(people.list.size()));
-			document.setAuthor(p.getLastName()+" "+p.getFirstName()+" "+p.getPatronymic());
-			
+			document.setAuthor(p.getLastName()+" "+p.getFirstName()+" "+p.getPatronymic());			
 		}
 	        
 		//метод для генерации случайных строк
@@ -108,4 +106,13 @@ public class FactoryUtil {
 		public static void makeDelivery(Outgoing outgoing){    	
 			outgoing.setDelivery(NameStorage.delivery[new Random().nextInt(3)]);
 		}
+		
+		//определение типа документа    
+				public static String typeToString(Document document){
+					String str = null;		
+					if (document.getType()==DocType.TASK) str = "Поручение";
+					if (document.getType()==DocType.INCOMING) str = "Входящий";
+					if (document.getType()==DocType.OUTGOING) str = "Исходящий";
+					return str;		
+				}  
 }
