@@ -1,4 +1,4 @@
-package fileWork;
+package ru.grusha.model;
 
 public abstract class Staff {
 	

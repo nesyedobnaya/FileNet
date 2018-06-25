@@ -1,4 +1,4 @@
-package fileWork;
+package ru.grusha.model;
 
 import java.util.List;
 

@@ -1,12 +1,6 @@
-package fileWork;
-
-import java.util.List;
+package ru.grusha.model;
 
 import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
 
 public class Person extends Staff{
 	

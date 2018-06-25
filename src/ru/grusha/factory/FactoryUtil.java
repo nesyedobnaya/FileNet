@@ -8,12 +8,12 @@ import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 import fileWork.JaxbParser;
-import fileWork.People;
-import fileWork.Person;
 import ru.grusha.model.Document;
 import ru.grusha.model.Document.DocType;
 import ru.grusha.model.Incoming;
 import ru.grusha.model.Outgoing;
+import ru.grusha.model.People;
+import ru.grusha.model.Person;
 import ru.grusha.storage.NameStorage;
 
 public class FactoryUtil {
@@ -27,8 +27,7 @@ public class FactoryUtil {
 	     
 		//случайный выбор автора документа
 		public static void author(Document document){
-			document.setAuthor(NameStorage.author[new Random().nextInt(5)]);
-			
+			document.setAuthor(NameStorage.author[new Random().nextInt(5)]);			
 			Person p = new Person();
 			File file1 = new File("D://XML/People.xml");
 			people=(People)JaxbParser.unMarshaling(file1, people);

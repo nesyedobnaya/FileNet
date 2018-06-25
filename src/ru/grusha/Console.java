@@ -3,15 +3,15 @@ package ru.grusha;
 import java.io.File;
 import java.util.TreeSet;
 
-import fileWork.Departments;
 import fileWork.JaxbParser;
-import fileWork.Organizations;
-import fileWork.People;
 import ru.grusha.exeption.DocumentExistsExeption;
 import ru.grusha.factory.Factory;
 import ru.grusha.factory.FactoryUtil;
 import ru.grusha.model.Document.DocType;
+import ru.grusha.model.Departments;
 import ru.grusha.model.Document;
+import ru.grusha.model.Organizations;
+import ru.grusha.model.People;
 import ru.grusha.storage.DocumentStorage;
 
 public class Console {
