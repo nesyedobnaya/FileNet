@@ -10,8 +10,8 @@ public class IncomingFactory extends Factory{
 		Incoming incoming = new Incoming();		
 		FactoryUtil.makeOutgoingRegistrationDate(incoming);    	
 		FactoryUtil.makeOutgoingNumber(incoming);    	
-		FactoryUtil.makeSender(incoming);    	
-		FactoryUtil.makeAddressee(incoming);    	
+		incoming.setSender(FactoryUtil.randomPerson());    	
+		incoming.setAddressee(FactoryUtil.randomPerson());  	
 		return incoming;    
 	}    
 }

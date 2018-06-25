@@ -12,6 +12,7 @@ import ru.grusha.model.Incoming;
 import ru.grusha.model.Outgoing;
 import ru.grusha.model.People;
 import ru.grusha.model.Person;
+import ru.grusha.model.Task;
 import ru.grusha.storage.NameStorage;
 
 public class FactoryUtil {
@@ -28,6 +29,11 @@ public class FactoryUtil {
 			//document.setAuthor(NameStorage.author[new Random().nextInt(5)]);				
 			Person p =NameStorage.loadedPeople.list.get(new Random().nextInt(NameStorage.loadedPeople.list.size()));
 			document.setAuthor(p);		
+		}
+		
+		//случайный выбор персона
+		public static Person randomPerson(){							
+			return NameStorage.loadedPeople.list.get(new Random().nextInt(NameStorage.loadedPeople.list.size()));	
 		}
 	        
 		//метод для генерации случайных строк
@@ -105,11 +111,36 @@ public class FactoryUtil {
 		}
 		
 		//определение типа документа    
-				public static String typeToString(Document document){
-					String str = null;		
-					if (document.getType()==DocType.TASK) str = "Поручение";
-					if (document.getType()==DocType.INCOMING) str = "Входящий";
-					if (document.getType()==DocType.OUTGOING) str = "Исходящий";
-					return str;		
-				}  
+		public static String typeToString(Document document){
+			String str = null;		
+			if (document.getType()==DocType.TASK) str = "Поручение";
+			if (document.getType()==DocType.INCOMING) str = "Входящий";
+			if (document.getType()==DocType.OUTGOING) str = "Исходящий";
+			return str;		
+		}  
+		
+		//генерация даты выдачи/
+		public static void makeDeliveryDate(Task task){
+			task.setDeliveryDate(FactoryUtil.RandomDate());
+		}
+			    
+		//генерация срока исполнения задания/
+		public static void makeDueDate(Task task){
+			task.setDueDate(task.getDeliveryDate());//срок исполнения не может быть раньше даты выдачи    	
+		}
+			    
+		//случайный выбор исполнителя получения
+		public static void makeExecutor(Task task){    	
+			task.setExecutor(NameStorage.executor[new Random().nextInt(5)]);;
+		}
+			    
+		//случайный выбор контролера
+		public static void makeController(Task task){    	
+			task.setController(NameStorage.controller[new Random().nextInt(5)]);
+		}
+			    
+		//генерация признака контрольности
+		public static void makeControleAttribute(Task task){
+			task.setControleAttribute(NameStorage.controleAttribute[new Random().nextInt(3)]);
+		}  
 }

@@ -9,7 +9,7 @@ public class OutgoingFactory extends Factory{
 	public static Document createOutgoing() {
 		Outgoing outgoing = new Outgoing();
 		FactoryUtil.makeDelivery(outgoing);
-		FactoryUtil.makeOutgoingAddressee(outgoing);    	
+		outgoing.setAddressee(FactoryUtil.randomPerson());    	
 		return outgoing;   			
 	}	   
 }

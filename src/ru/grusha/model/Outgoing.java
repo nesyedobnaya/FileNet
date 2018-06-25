@@ -2,15 +2,15 @@ package ru.grusha.model;
 
 public class Outgoing extends Document {
 	
-    private String addressee;//адресат     
+    private Person addressee;//адресат     
     private String delivery;//способ доставки
     
-    public String getAddressee() {
+    public Person getAddressee() {
 		return addressee;
 	}
 
-	public void setAddressee(String addressee) {
-		this.addressee = addressee;
+	public void setAddressee(Person person) {
+		this.addressee = person;
 	}
 	
 	public String getDelivery() {

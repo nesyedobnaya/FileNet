@@ -26,4 +26,6 @@ public class NameStorage {
 	public static Organizations loadedOrganizations=new Organizations();	
 	
 	public static String[] delivery = {"Курьер", "Факс", "Электронная почта"};
+	
+	public static String[] controleAttribute = {"Выдано", "В процессе", "Исполнено"};
 }

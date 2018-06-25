@@ -13,7 +13,7 @@ public class Factory {
 	//генерация общих полей документа
 	public Document makeCommonFields(Document document) {		       
 		FactoryUtil.generateID(document);
-		FactoryUtil.author(document);
+		document.setAuthor(FactoryUtil.randomPerson());
 		FactoryUtil.name(document);
 		FactoryUtil.text(document);
 		FactoryUtil.typeToString(document);
