@@ -4,6 +4,7 @@ import java.util.TreeSet;
 
 import ru.grusha.exeption.DocumentExistsExeption;
 import ru.grusha.factory.Factory;
+import ru.grusha.factory.FactoryUtil;
 import ru.grusha.model.Document.DocType;
 import ru.grusha.model.Document;
 import ru.grusha.storage.DocumentStorage;
@@ -35,7 +36,7 @@ public class Console {
 			System.out.println(" - "+a);        	        	
 			for (Document e: DocumentStorage.data) {
 				if (a.equals(e.getAuthor())) {
-					System.out.println("\t- "+Factory.type(e)
+					System.out.println("\t- "+FactoryUtil.typeToString(e)
 						+" от "+Factory.dateFormat.format(e.getRegistrationDate()) 
 						+ " №" + e.getRegistrationNumber());
         			}        		

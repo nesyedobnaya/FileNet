@@ -16,7 +16,7 @@ public class Factory {
 		FactoryUtil.author(document);
 		FactoryUtil.name(document);
 		FactoryUtil.text(document);
-		type(document);
+		FactoryUtil.typeToString(document);
 		FactoryUtil.registrationDate(document);
 		return document;	 
 	}
@@ -24,25 +24,16 @@ public class Factory {
 	public Document createDocument(DocType type) throws DocumentExistsExeption{ 
 		int registrationNumber=FactoryUtil.createRegistrationNumber();
 		DocumentStorage.check(DocumentStorage.data, registrationNumber);//проверка, существует ли уже документ с таким номером
-		Document document = createDocumentOfCertainKind(type);
+		Document document = createDocumentOfCertainType(type);
 		document.setRegistrationNumber(registrationNumber);
 		document.setDocType(type);
 		makeCommonFields(document);
 		DocumentStorage.data.add(document);
 		return document;    	
-	}
-	    
-	//определение типа документа    
-	public static String type(Document document){
-		String str = null;		
-		if (document.getType()==DocType.TASK) str = "Поручение";
-		if (document.getType()==DocType.INCOMING) str = "Входящий";
-		if (document.getType()==DocType.OUTGOING) str = "Исходящий";
-		return str;		
-	}        
+	}	      
        
 	//создание экземпляров документа заданного типа    
-	public static Document createDocumentOfCertainKind(DocType type){            
+	public static Document createDocumentOfCertainType(DocType type){            
 		switch (type){                 
 		case TASK: return TaskFactory.createTask();
 		case INCOMING: return IncomingFactory.createIncoming();

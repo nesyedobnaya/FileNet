@@ -9,6 +9,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import ru.grusha.model.Document;
 import ru.grusha.model.Incoming;
 import ru.grusha.model.Outgoing;
+import ru.grusha.model.Document.DocType;
 import ru.grusha.storage.NameStorage;
 
 public class FactoryUtil {
@@ -93,4 +94,13 @@ public class FactoryUtil {
 		public static void makeDelivery(Outgoing outgoing){    	
 			outgoing.setDelivery(NameStorage.delivery[new Random().nextInt(3)]);
 		}
+		
+		//определение типа документа    
+		public static String typeToString(Document document){
+			String str = null;		
+			if (document.getType()==DocType.TASK) str = "Поручение";
+			if (document.getType()==DocType.INCOMING) str = "Входящий";
+			if (document.getType()==DocType.OUTGOING) str = "Исходящий";
+			return str;		
+		}  
 }
