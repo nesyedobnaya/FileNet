@@ -9,6 +9,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import ru.grusha.model.Document;
 import ru.grusha.model.Incoming;
 import ru.grusha.model.Outgoing;
+import ru.grusha.model.Task;
 import ru.grusha.model.Document.DocType;
 import ru.grusha.storage.NameStorage;
 
@@ -103,4 +104,29 @@ public class FactoryUtil {
 			if (document.getType()==DocType.OUTGOING) str = "Исходящий";
 			return str;		
 		}  
+		
+		//генерация даты выдачи/
+		public static void makeDeliveryDate(Task task){
+			task.setDeliveryDate(FactoryUtil.RandomDate());
+		}
+	    
+		//генерация срока исполнения задания/
+		public static void makeDueDate(Task task){
+			task.setDueDate(task.getDeliveryDate());//срок исполнения не может быть раньше даты выдачи    	
+		}
+	    
+		//случайный выбор исполнителя получения
+		public static void makeExecutor(Task task){    	
+			task.setExecutor(NameStorage.executor[new Random().nextInt(5)]);;
+		}
+	    
+		//случайный выбор контролера
+		public static void makeController(Task task){    	
+			task.setController(NameStorage.controller[new Random().nextInt(5)]);
+		}
+	    
+		//генерация признака контрольности
+		public static void makeControleAttribute(Task task){
+			task.setControleAttribute(NameStorage.controleAttribute[new Random().nextInt(3)]);
+		}   
 }

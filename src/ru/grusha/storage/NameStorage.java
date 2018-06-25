@@ -18,4 +18,6 @@ public class NameStorage {
 			"Керн А.Р.", "Шевчук Н.Л."};
 	
 	public static String[] delivery = {"Курьер", "Факс", "Электронная почта"};
+	
+	public static String[] controleAttribute = {"Выдано", "В процессе", "Исполнено"};
 }
