@@ -13,7 +13,7 @@ import ru.grusha.storage.NameStorage;
 
 public class FactoryUtil {
 	
-	//генерация идентификатора
+		//генерация идентификатора
 		public static void generateID(Document document){
 			document.setID(String.format("%.0f%n",(Math.random()*10000)));    
 		}

@@ -3,6 +3,8 @@ package ru.grusha.model;
 import java.util.Date;
 
 public abstract class Document implements Comparable<Document>{
+	
+	public enum DocType {INCOMING, TASK, OUTGOING}
 	 
 	private String ID;//идентификатор документа
 	private String name;//название документа	  
@@ -10,6 +12,8 @@ public abstract class Document implements Comparable<Document>{
 	private int registrationNumber;//регистрационный номер	     
 	private Date registrationDate;//дата регистрации	    
 	private String author;//автор документа	
+	private DocType type;
+	
 				
 	public String getID() {
 		return ID;
@@ -58,6 +62,14 @@ public abstract class Document implements Comparable<Document>{
 	public void setAuthor(String author) {
 		this.author = author;
 	}
+	
+	public DocType getType() {
+		return type;
+	}
+
+	public void setDocType(DocType type) {
+		this.type = type;
+	}
 		
 	@Override 	    
 	public int compareTo(Document entry){ 
@@ -78,7 +90,7 @@ public abstract class Document implements Comparable<Document>{
 	@Override 		
 	public String toString() { 			
 		return "Документ №"+ getRegistrationNumber()
-		    +", ID: " + getID() 
+		    + ", ID: " + getID() 
 		    + ", Название документа: " + getName() 
 		    + ", Дата регистрации: " + getRegistrationDate()
 		    + ", Автор: " + getAuthor() 

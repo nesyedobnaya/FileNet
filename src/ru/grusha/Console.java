@@ -4,6 +4,7 @@ import java.util.TreeSet;
 
 import ru.grusha.exeption.DocumentExistsExeption;
 import ru.grusha.factory.Factory;
+import ru.grusha.model.Document.DocType;
 import ru.grusha.model.Document;
 import ru.grusha.storage.DocumentStorage;
 
@@ -11,11 +12,12 @@ public class Console {
 
 	public static void main(String[] args) throws DocumentExistsExeption {
 
-		Factory doc = new Factory();	
-		String setOfDocuments[] = {"Incoming", "Task", "Outgoing", "Incoming", "Task", "Outgoing"}; //список создаваемых документов          
-		for (int i=0;i<setOfDocuments.length;i++) {        	       	
+		Factory doc = new Factory();
+		//список типов создаваемых документов 
+		DocType[] setOfDocumentTypes = new DocType[]{DocType.INCOMING, DocType.TASK, DocType.OUTGOING,DocType.INCOMING,DocType.TASK,DocType.OUTGOING};		        
+		for (int i=0;i<setOfDocumentTypes.length;i++) {        	       	
         	try{
-        		Document o=doc.createDocument(setOfDocuments[i]);
+        		Document o=doc.createDocument(setOfDocumentTypes[i]);
         		//System.out.println(o.toString());//вывод полей документа в консоль для проверки
         	}catch(DocumentExistsExeption ex){
         		System.out.println(ex.getMessage());	
