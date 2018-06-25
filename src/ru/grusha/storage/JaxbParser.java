@@ -1,4 +1,4 @@
-package fileWork;
+package ru.grusha.storage;
 
 import java.io.File;
 import javax.xml.bind.JAXBContext;
@@ -20,10 +20,10 @@ public class JaxbParser {
 		}
  	}
  	
- 	public static Object unMarshaling(File file, Object object) {
+ 	public static Object unMarshaling(File file, Class classOfObject) {
  		JAXBContext jaxbContext;
  		try {
-			jaxbContext = JAXBContext.newInstance(object.getClass());		
+			jaxbContext = JAXBContext.newInstance(classOfObject);		
 			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller(); 	     
 			Object obj = (Object) jaxbUnmarshaller.unmarshal(file); 	    
 			return obj; 

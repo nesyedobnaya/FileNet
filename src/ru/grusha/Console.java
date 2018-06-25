@@ -3,7 +3,6 @@ package ru.grusha;
 import java.io.File;
 import java.util.TreeSet;
 
-import fileWork.JaxbParser;
 import ru.grusha.exeption.DocumentExistsExeption;
 import ru.grusha.factory.Factory;
 import ru.grusha.factory.FactoryUtil;
@@ -12,7 +11,10 @@ import ru.grusha.model.Departments;
 import ru.grusha.model.Document;
 import ru.grusha.model.Organizations;
 import ru.grusha.model.People;
+import ru.grusha.model.Person;
 import ru.grusha.storage.DocumentStorage;
+import ru.grusha.storage.JaxbParser;
+import ru.grusha.storage.NameStorage;
 
 public class Console {
 
@@ -22,17 +24,15 @@ public class Console {
 		File file2 = new File("D://XML/Organizations.xml");	 	    
 		File file3 = new File("D://XML/Departments.xml");
 		
-		People loadedPeople=new People(); 	    
-		loadedPeople=(People)JaxbParser.unMarshaling(file1, loadedPeople);	        
-		System.out.println(loadedPeople.list.toString()); 			
+		//загрузка из файлов	    
+		NameStorage.loadedPeople=(People)JaxbParser.unMarshaling(file1, People.class);		
+		//System.out.println(loadedPeople.list.toString()); 			
 		
-		Departments loadedDepartments=new Departments(); 	    
-		loadedDepartments=(Departments)JaxbParser.unMarshaling(file3, loadedDepartments);	        
-		System.out.println(loadedDepartments.list.toString()); 
+		NameStorage.loadedDepartments=(Departments)JaxbParser.unMarshaling(file3, Departments.class);	        
+		//System.out.println(loadedDepartments.list.toString()); 
 		
-		Organizations loadedOrganizations=new Organizations(); 	    
-		loadedOrganizations=(Organizations)JaxbParser.unMarshaling(file2, loadedOrganizations);	        
-		System.out.println(loadedOrganizations.list.toString());
+		NameStorage.loadedOrganizations=(Organizations)JaxbParser.unMarshaling(file2, Organizations.class);       
+		//System.out.println(loadedOrganizations.list.toString());
 
 		Factory doc = new Factory();
 		//список типов создаваемых документов 
@@ -47,14 +47,14 @@ public class Console {
 		}
         
 		//создание набора авторов
-		TreeSet<String> setOfAuthors = new TreeSet<String>();                 
+		TreeSet<Person> setOfAuthors = new TreeSet<Person>();                 
 		for (Document e: DocumentStorage.data) {        	
 			setOfAuthors.add(e.getAuthor());        	
 		}
                 
 		//вывод отчета (перечень авторов и список созданных ими документов, отсортированных по дате регистрации и регистрационному номеру)
-				for (String a: setOfAuthors) {
-					System.out.println(" - "+a);        	        	
+				for (Person a: setOfAuthors) {
+					System.out.println(" - "+a.getFullName());        	        	
 					for (Document e: DocumentStorage.data) {
 						if (a.equals(e.getAuthor())) {
 							System.out.println("\t- "+FactoryUtil.typeToString(e)

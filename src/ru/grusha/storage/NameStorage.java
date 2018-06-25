@@ -1,5 +1,9 @@
 package ru.grusha.storage;
 
+import ru.grusha.model.Departments;
+import ru.grusha.model.Organizations;
+import ru.grusha.model.People;
+
 public class NameStorage {
 	
 	public static String[] author = {"Иванов И.И.", "Петров Г.О.", "Новикова Е.А.", 
@@ -16,6 +20,10 @@ public class NameStorage {
 	
 	public static String[] controller = {"Антонов Н.В.", "Пелевин А.Р.", "Зощенко Е.А.", 
 			"Керн А.Р.", "Шевчук Н.Л."};
+	
+	public static People loadedPeople=new People(); 
+	public static Departments loadedDepartments=new Departments();
+	public static Organizations loadedOrganizations=new Organizations();	
 	
 	public static String[] delivery = {"Курьер", "Факс", "Электронная почта"};
 }

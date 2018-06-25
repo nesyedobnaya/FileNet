@@ -11,7 +11,7 @@ public abstract class Document implements Comparable<Document>{
 	private String text;//текст документа	     
 	private int registrationNumber;//регистрационный номер	     
 	private Date registrationDate;//дата регистрации	    
-	private String author;//автор документа	
+	private Person author;//автор документа	
 	private DocType type;
 	
 				
@@ -55,11 +55,11 @@ public abstract class Document implements Comparable<Document>{
 		this.registrationDate = registrationDate;
 	}
 
-	public String getAuthor() {
+	public Person getAuthor() {
 		return author;
 	}
 
-	public void setAuthor(String author) {
+	public void setAuthor(Person author) {
 		this.author = author;
 	}
 	
@@ -93,7 +93,7 @@ public abstract class Document implements Comparable<Document>{
 		    + ", ID: " + getID() 
 		    + ", Название документа: " + getName() 
 		    + ", Дата регистрации: " + getRegistrationDate()
-		    + ", Автор: " + getAuthor() 
+		    + ", Автор: " + getAuthor().toString()
 		    + ", Текст документа: "+ getText();
 	}
 }

@@ -1,13 +1,11 @@
 package ru.grusha.factory;
 
-import java.io.File;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import java.util.Date;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
-import fileWork.JaxbParser;
 import ru.grusha.model.Document;
 import ru.grusha.model.Document.DocType;
 import ru.grusha.model.Incoming;
@@ -27,12 +25,9 @@ public class FactoryUtil {
 	     
 		//случайный выбор автора документа
 		public static void author(Document document){
-			document.setAuthor(NameStorage.author[new Random().nextInt(5)]);			
-			Person p = new Person();
-			File file1 = new File("D://XML/People.xml");
-			people=(People)JaxbParser.unMarshaling(file1, people);
-			p =people.list.get(new Random().nextInt(people.list.size()));
-			document.setAuthor(p.getLastName()+" "+p.getFirstName()+" "+p.getPatronymic());			
+			//document.setAuthor(NameStorage.author[new Random().nextInt(5)]);				
+			Person p =NameStorage.loadedPeople.list.get(new Random().nextInt(NameStorage.loadedPeople.list.size()));
+			document.setAuthor(p);		
 		}
 	        
 		//метод для генерации случайных строк
@@ -88,17 +83,20 @@ public class FactoryUtil {
 	    
 		//случайный выбор отправителя
 		public static void makeSender(Incoming incoming){
-			incoming.setSender(NameStorage.sender[new Random().nextInt(5)]);
+			Person p =NameStorage.loadedPeople.list.get(new Random().nextInt(NameStorage.loadedPeople.list.size()));
+			incoming.setAuthor(p);
 		}
 	    
 		//случайный выбор адресата
 		public static void makeAddressee(Incoming incoming){
-			incoming.setAddressee(NameStorage.addressee[new Random().nextInt(5)]);
+			Person p =NameStorage.loadedPeople.list.get(new Random().nextInt(NameStorage.loadedPeople.list.size()));
+			incoming.setAuthor(p);
 		}  
 		
 		//случайный выбор адресата
 		public static void makeOutgoingAddressee(Outgoing outgoing){
-			outgoing.setAddressee(NameStorage.addressee[new Random().nextInt(5)]);
+			Person p =NameStorage.loadedPeople.list.get(new Random().nextInt(NameStorage.loadedPeople.list.size()));
+			outgoing.setAuthor(p);
 		}
 	    
 		//случайный выбор способа доставки
