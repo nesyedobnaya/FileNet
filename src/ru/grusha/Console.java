@@ -14,9 +14,9 @@ import ru.grusha.storage.DocumentStorage;
 import ru.grusha.storage.JsonFileWriter;
 import ru.grusha.storage.NameStorage;
 
-public class Console
-{
-public static void main(String[] args) throws DocumentExistsExeption {
+public class Console{
+	
+	public static void main(String[] args) throws DocumentExistsExeption {
 		
 		NameStorage.loadStaff();
 

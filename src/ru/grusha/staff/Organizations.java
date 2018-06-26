@@ -20,7 +20,7 @@ public class Organizations{
 		for(Organization prsn : list)
 		{			
 			str = str +prsn.toString();	        
-	    }		
+		}		
 		return str;		  	
 	}
 }

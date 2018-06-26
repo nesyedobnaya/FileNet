@@ -23,7 +23,7 @@ public class Outgoing extends Document {
 		this.delivery = delivery;
 	}
     
-    @Override
+	@Override
 	public String toString() {
     	return "Исходящий документ №" + getRegistrationNumber()
     		+ ", ID: " + getID() 

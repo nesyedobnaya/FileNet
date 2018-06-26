@@ -32,6 +32,7 @@ public class NameStorage {
 	public static String[] controleAttribute = {"Выдано", "В процессе", "Исполнено"};
 	
 	public static void loadStaff() {
+		
 		File filePeople = new File("D://XML/People.xml");
 		File fileOrganizations = new File("D://XML/Organizations.xml");	 	    
 		File fileDepartments = new File("D://XML/Departments.xml");

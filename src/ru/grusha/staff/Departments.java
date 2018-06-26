@@ -20,7 +20,7 @@ public class Departments{
 		for(Department prsn : list)
 		{			
 			str = str +prsn.toString();	        
-	    }		
+		}		
 		return str;		  	
 	}
 }

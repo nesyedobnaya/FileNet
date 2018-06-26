@@ -20,7 +20,7 @@ public class People{
 		for(Person prsn : list)
 		{			
 			str = str +prsn.toString();	        
-	    }		
+		}		
 		return str;		  	
 	}
 }

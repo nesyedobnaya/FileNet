@@ -15,8 +15,8 @@ public class JaxbParser {
 			jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true); 	     
 			//jaxbMarshaller.marshal(object, System.out); 			
 			jaxbMarshaller.marshal(object, file);  	
-			} catch (JAXBException e) {
-			e.printStackTrace();
+		} catch (JAXBException e) {
+		e.printStackTrace();
 		}
  	}
  	
@@ -29,7 +29,7 @@ public class JaxbParser {
 			return obj; 
 		} catch (JAXBException e) {			
 			e.printStackTrace();
-			}
-			return null;
+		}
+		return null;
 	} 
 }

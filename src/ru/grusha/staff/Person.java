@@ -47,8 +47,8 @@ public class Person extends Staff implements Comparable<Person>{
 	
 	public String toString() {
 		String str = getLastName()+" "
-				+getFirstName()+" "
-				+getPatronymic()
+				+ getFirstName()+" "
+				+ getPatronymic()
 				+" Должность: "+getPosition();	        
 		return str;		  	
 	}
