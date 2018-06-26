@@ -1,5 +1,7 @@
 package ru.grusha.model;
 
+import ru.grusha.staff.Person;
+
 public class Outgoing extends Document {
 	
     private Person addressee;//адресат     

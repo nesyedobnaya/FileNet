@@ -2,6 +2,8 @@ package ru.grusha.model;
 
 import java.util.Date;
 
+import ru.grusha.staff.Person;
+
 public class Incoming extends Document{
 	 
 	private Person sender;//отправитель 

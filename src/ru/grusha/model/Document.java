@@ -2,6 +2,8 @@ package ru.grusha.model;
 
 import java.util.Date;
 
+import ru.grusha.staff.Person;
+
 public abstract class Document implements Comparable<Document>{
 	
 	public enum DocType {INCOMING, TASK, OUTGOING}

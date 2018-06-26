@@ -1,4 +1,4 @@
-package ru.grusha.model;
+package ru.grusha.staff;
 
 import javax.xml.bind.annotation.XmlAttribute;
 

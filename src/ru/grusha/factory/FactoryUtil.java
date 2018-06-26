@@ -8,10 +8,10 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import ru.grusha.model.Document;
 import ru.grusha.model.Document.DocType;
+import ru.grusha.staff.People;
+import ru.grusha.staff.Person;
 import ru.grusha.model.Incoming;
 import ru.grusha.model.Outgoing;
-import ru.grusha.model.People;
-import ru.grusha.model.Person;
 import ru.grusha.model.Task;
 import ru.grusha.storage.NameStorage;
 

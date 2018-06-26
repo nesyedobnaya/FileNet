@@ -1,4 +1,4 @@
-package ru.grusha.model;
+package ru.grusha.staff;
 
 import java.util.List;
 
