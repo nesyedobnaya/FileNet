@@ -17,7 +17,7 @@ public class FactoryUtil {
 	
 		//генерация идентификатора
 		public static void generateID(Document document){
-			document.setID(String.format("%.0f%n",(Math.random()*10000)));    
+			document.setID(String.valueOf((int)(Math.random()*10000)));    
 		}
 	     
 		//случайный выбор автора документа

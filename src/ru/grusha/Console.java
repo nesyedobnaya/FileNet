@@ -14,31 +14,31 @@ public class Console {
 	public static void main(String[] args) throws DocumentExistsExeption {
 
 		Factory doc = new Factory();
-		//список типов создаваемых документов 
-		DocType[] setOfDocumentTypes = new DocType[]{DocType.INCOMING, DocType.TASK, DocType.OUTGOING,DocType.INCOMING,DocType.TASK,DocType.OUTGOING};		        
-		for (int i=0;i<setOfDocumentTypes.length;i++) {        	       	
-        	try{
-        		Document o=doc.createDocument(setOfDocumentTypes[i]);
-        		//System.out.println(o.toString());//вывод полей документа в консоль для проверки
+		
+		//создание документов
+		for (DocType type : DocType.values()) { 
+			try{
+        		Document newDocument=doc.createDocument(type);
+        		//System.out.println(newDocument.toString());//вывод полей документа в консоль для проверки
         	}catch(DocumentExistsExeption ex){
         		System.out.println(ex.getMessage());	
-        	}        	      	    	
-		}
+        	}
+		}		
         
 		//создание набора авторов
 		TreeSet<String> setOfAuthors = new TreeSet<String>();                 
-		for (Document e: DocumentStorage.data) {        	
-			setOfAuthors.add(e.getAuthor());        	
+		for (Document document: DocumentStorage.data) {        	
+			setOfAuthors.add(document.getAuthor());        	
 		}
                 
 		//вывод отчета (перечень авторов и список созданных ими документов, отсортированных по дате регистрации и регистрационному номеру)
-		for (String a: setOfAuthors) {
-			System.out.println(" - "+a);        	        	
-			for (Document e: DocumentStorage.data) {
-				if (a.equals(e.getAuthor())) {
-					System.out.println("\t- "+FactoryUtil.typeToString(e)
-						+" от "+Factory.dateFormat.format(e.getRegistrationDate()) 
-						+ " №" + e.getRegistrationNumber());
+		for (String authorFromSet: setOfAuthors) {
+			System.out.println(" - "+authorFromSet);        	        	
+			for (Document documentFromStorage: DocumentStorage.data) {
+				if (authorFromSet.equals(documentFromStorage.getAuthor())) {
+					System.out.println("\t- "+FactoryUtil.typeToString(documentFromStorage)
+						+" от "+Factory.dateFormat.format(documentFromStorage.getRegistrationDate()) 
+						+ " №" + documentFromStorage.getRegistrationNumber());
         			}        		
         		}
 		}        

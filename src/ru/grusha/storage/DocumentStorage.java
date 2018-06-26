@@ -11,8 +11,8 @@ public class DocumentStorage {
 		
 	//проверка совпадения регистрационного номера с другими документами набора	 
 	public static void check(TreeSet<Document> tree, int registrationNumber) throws DocumentExistsExeption{
-		for (Document e: tree) {        
-			if (registrationNumber==e.getRegistrationNumber())  {         	
+		for (Document documentFromTree: tree) {        
+			if (registrationNumber==documentFromTree.getRegistrationNumber())  {         	
 				throw new DocumentExistsExeption("Документ с таким регистрационным номером уже существует");        
 			}		
 		}
