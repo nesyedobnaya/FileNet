@@ -20,18 +20,18 @@ public class Console {
 
 	public static void main(String[] args) throws DocumentExistsExeption {
 		
-		File file1 = new File("D://XML/People.xml");
-		File file2 = new File("D://XML/Organizations.xml");	 	    
-		File file3 = new File("D://XML/Departments.xml");
+		File filePeople = new File("D://XML/People.xml");
+		File fileOrganizations = new File("D://XML/Organizations.xml");	 	    
+		File fileDepartments = new File("D://XML/Departments.xml");
 		
 		//загрузка из файлов	    
-		NameStorage.loadedPeople=(People)JaxbParser.unMarshaling(file1, People.class);		
+		NameStorage.loadedPeople=(People)JaxbParser.unMarshaling(filePeople, People.class);		
 		//System.out.println(loadedPeople.list.toString()); 			
 		
-		NameStorage.loadedDepartments=(Departments)JaxbParser.unMarshaling(file3, Departments.class);	        
+		NameStorage.loadedDepartments=(Departments)JaxbParser.unMarshaling(fileDepartments, Departments.class);	        
 		//System.out.println(loadedDepartments.list.toString()); 
 		
-		NameStorage.loadedOrganizations=(Organizations)JaxbParser.unMarshaling(file2, Organizations.class);       
+		NameStorage.loadedOrganizations=(Organizations)JaxbParser.unMarshaling(fileOrganizations, Organizations.class);       
 		//System.out.println(loadedOrganizations.list.toString());
 
 		Factory doc = new Factory();
@@ -54,15 +54,15 @@ public class Console {
                 
 		//вывод отчета (перечень авторов и список созданных ими документов, отсортированных по дате регистрации и регистрационному номеру)
 				for (Person a: setOfAuthors) {
-					System.out.println(" - "+a.getFullName());        	        	
+					System.out.println(" - "+a.getFullName()); //вывод полного имени автора документа    	        	
 					for (Document e: DocumentStorage.data) {
 						if (a.equals(e.getAuthor())) {
-							System.out.println("\t- "+FactoryUtil.typeToString(e)
-								+" от "+Factory.dateFormat.format(e.getRegistrationDate()) 
-								+ " №" + e.getRegistrationNumber());
+							System.out.println("\t- "+FactoryUtil.typeToString(e) //вывод типа документа
+								+" от "+Factory.dateFormat.format(e.getRegistrationDate()) //вывод даты регистрации
+								+ " №" + e.getRegistrationNumber()); //вывод регистрационного номера
 		        			}        		
-		        		}
-				}        
+		        	}
+		}        
 	}
 }
 	

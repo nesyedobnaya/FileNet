@@ -21,17 +21,10 @@ public class FactoryUtil {
 			
 		//генерация идентификатора
 		public static void generateID(Document document){
-			document.setID(String.format("%.0f%n",(Math.random()*10000)));    
-		}
-	     
-		//случайный выбор автора документа
-		public static void author(Document document){
-			//document.setAuthor(NameStorage.author[new Random().nextInt(5)]);				
-			Person p =NameStorage.loadedPeople.list.get(new Random().nextInt(NameStorage.loadedPeople.list.size()));
-			document.setAuthor(p);		
-		}
+			document.setID(Integer.toString((int)(Math.random()*10000)));    
+		}		
 		
-		//случайный выбор персона
+		//случайный выбор персоны
 		public static Person randomPerson(){							
 			return NameStorage.loadedPeople.list.get(new Random().nextInt(NameStorage.loadedPeople.list.size()));	
 		}
@@ -91,20 +84,8 @@ public class FactoryUtil {
 		public static void makeSender(Incoming incoming){
 			Person p =NameStorage.loadedPeople.list.get(new Random().nextInt(NameStorage.loadedPeople.list.size()));
 			incoming.setAuthor(p);
-		}
-	    
-		//случайный выбор адресата
-		public static void makeAddressee(Incoming incoming){
-			Person p =NameStorage.loadedPeople.list.get(new Random().nextInt(NameStorage.loadedPeople.list.size()));
-			incoming.setAuthor(p);
-		}  
+		}			
 		
-		//случайный выбор адресата
-		public static void makeOutgoingAddressee(Outgoing outgoing){
-			Person p =NameStorage.loadedPeople.list.get(new Random().nextInt(NameStorage.loadedPeople.list.size()));
-			outgoing.setAuthor(p);
-		}
-	    
 		//случайный выбор способа доставки
 		public static void makeDelivery(Outgoing outgoing){    	
 			outgoing.setDelivery(NameStorage.delivery[new Random().nextInt(3)]);
