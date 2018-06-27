@@ -4,25 +4,24 @@ import java.util.TreeSet;
 
 import ru.grusha.exeption.DocumentExistsExeption;
 import ru.grusha.factory.Factory;
-import ru.grusha.factory.FactoryUtil;
-import ru.grusha.model.Document.DocType;
 import ru.grusha.model.Document;
 import ru.grusha.storage.DocumentStorage;
+import ru.grusha.storage.DocumentType.DocType;
 
 public class Console {
 
 	public static void main(String[] args) throws DocumentExistsExeption {
 
-		Factory doc = new Factory();
+		Factory docFactory = new Factory();
 		
 		//создание документов
 		for (DocType type : DocType.values()) { 
 			try{
-        		Document newDocument=doc.createDocument(type);
-        		//System.out.println(newDocument.toString());//вывод полей документа в консоль для проверки
-        	}catch(DocumentExistsExeption ex){
-        		System.out.println(ex.getMessage());	
-        	}
+				Document newDocument=docFactory.createDocument(type);
+				System.out.println(newDocument.toString());//вывод полей документа в консоль для проверки
+			}catch(DocumentExistsExeption ex){
+				System.out.println(ex.getMessage());	
+			}
 		}		
         
 		//создание набора авторов
@@ -36,9 +35,7 @@ public class Console {
 			System.out.println(" - "+authorFromSet);        	        	
 			for (Document documentFromStorage: DocumentStorage.data) {
 				if (authorFromSet.equals(documentFromStorage.getAuthor())) {
-					System.out.println("\t- "+FactoryUtil.typeToString(documentFromStorage)
-						+" от "+Factory.dateFormat.format(documentFromStorage.getRegistrationDate()) 
-						+ " №" + documentFromStorage.getRegistrationNumber());
+					System.out.println("\t- "+documentFromStorage.print());
         			}        		
         		}
 		}        

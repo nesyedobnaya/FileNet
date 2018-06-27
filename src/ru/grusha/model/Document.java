@@ -2,24 +2,23 @@ package ru.grusha.model;
 
 import java.util.Date;
 
+import ru.grusha.factory.Factory;
+
 public abstract class Document implements Comparable<Document>{
-	
-	public enum DocType {INCOMING, TASK, OUTGOING}
 	 
-	private String ID;//идентификатор документа
+	private int ID;//идентификатор документа
 	private String name;//название документа	  
 	private String text;//текст документа	     
-	private int registrationNumber;//регистрационный номер	     
+	private String registrationNumber;//регистрационный номер	     
 	private Date registrationDate;//дата регистрации	    
 	private String author;//автор документа	
-	private DocType type;
 	
 				
-	public String getID() {
+	public int getID() {
 		return ID;
 	}
 
-	public void setID(String ID) { 
+	public void setID(int ID) { 
 		this.ID = ID;
 	}
 
@@ -39,11 +38,11 @@ public abstract class Document implements Comparable<Document>{
 		this.text = text;
 	}
 
-	public int getRegistrationNumber() {
+	public String getRegistrationNumber() {
 		return registrationNumber;
 	}
 
-	public void setRegistrationNumber(int registrationNumber) {
+	public void setRegistrationNumber(String registrationNumber) {
 		this.registrationNumber = registrationNumber;
 	}
 
@@ -63,38 +62,26 @@ public abstract class Document implements Comparable<Document>{
 		this.author = author;
 	}
 	
-	public DocType getType() {
-		return type;
-	}
-
-	public void setDocType(DocType type) {
-		this.type = type;
-	}
-		
 	@Override 	    
 	public int compareTo(Document entry){ 
 	    
-	//сортировка по дате регистрации
-	Date dateDoc = this.registrationDate;
-	int result = dateDoc.compareTo(entry.registrationDate); 
-	if(result != 0) return result; 
+		//сортировка по дате регистрации
+		Date dateDoc = this.registrationDate;
+		int result = dateDoc.compareTo(entry.registrationDate); 
+		if(result != 0) return result; 
 
-	//сортировка по регистрационному номеру
-	int regDoc=this.registrationNumber;
-	result = regDoc - entry.registrationNumber; 
-	if(result!=0) 
-	return (int) result/Math.abs(result); 
-	return 0;  	 
+		//сортировка по регистрационному номеру
+		String regDoc=this.registrationNumber;
+		result = regDoc.compareTo(entry.getRegistrationNumber()); 
+		if(result!=0) 
+		return result; 
+		return 0;	 
 	} 
-	    
-	@Override 		
-	public String toString() { 			
-		return "Документ №"+ getRegistrationNumber()
-		    + ", ID: " + getID() 
-		    + ", Название документа: " + getName() 
-		    + ", Дата регистрации: " + getRegistrationDate()
-		    + ", Автор: " + getAuthor() 
-		    + ", Текст документа: "+ getText();
+	
+	public String print(){
+		return "Документ"
+				+" от "+Factory.dateFormat.format(this.getRegistrationDate()) 
+				+ " №" + this.getRegistrationNumber();
 	}
 }
 	    

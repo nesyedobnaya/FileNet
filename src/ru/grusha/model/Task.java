@@ -7,7 +7,7 @@ public class Task extends Document {
 	private Date deliveryDate;//дата выдачи поручения
 	private Date dueDate;//срок исполнения поручения   
 	private String executor;//ответственный исполнитель   
-	private String controleAttribute;//признак контрольности        
+	private boolean controleAttribute;//признак контрольности        
 	private String controller;//контролер поручения
     
 	public Date getDeliveryDate() {
@@ -42,12 +42,12 @@ public class Task extends Document {
 		this.controller = controller;
 	}
 
-	public String getControleAttribute() {
+	public boolean getControleAttribute() {
 		return controleAttribute;
 	}
 
-	public void setControleAttribute(String controleAttribute) {
-		this.controleAttribute = controleAttribute;
+	public void setControleAttribute(boolean b) {
+		this.controleAttribute = b;
 	}
 
 	@Override
@@ -61,7 +61,7 @@ public class Task extends Document {
 			+ ", Дата выдачи: " + getDeliveryDate()
 			+ ", Срок исполнения: " + getDueDate()
 			+ ", Ответственный исполнитель: " + getExecutor()				
-			+ ", Статус: " + getControleAttribute()
+			+ ", Исполнено: " + getControleAttribute()
 			+ ", Контролер: " + getController();
 	}	
 }
