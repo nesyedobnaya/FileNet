@@ -19,7 +19,7 @@ public class Generator {
 	public Document createDocument(DocumentType type) throws DocumentExistsExeption{ 
 		String registrationNumber=(FactoryUtil.createRandomInteger(6))+"";
 		DocumentStorage.check(DocumentStorage.data, registrationNumber);//проверка, существует ли уже документ с таким номером
-		Document document = type.getFactory().createDocument();
+		Document document = type.getFactory().getDocument();
 		document.setRegistrationNumber(registrationNumber);
 		DocumentStorage.data.add(document);
 		return document;    	

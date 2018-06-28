@@ -13,5 +13,5 @@ public abstract class Factory {
 	 * абстрактный фабричный метод, создающий доумент
 	 * @return созданный документ
 	 */
-	public abstract Document createDocument();
+	public abstract Document getDocument();
 }

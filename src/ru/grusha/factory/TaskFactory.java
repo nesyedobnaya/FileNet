@@ -15,7 +15,7 @@ public class TaskFactory extends Factory{
 	 * фабричный метод, возвращающий заполненное поручение
 	 */
 	@Override
-	public Document createDocument() {
+	public Document getDocument() {
 		Task task = new Task();
 		task.setID((FactoryUtil.createRandomInteger(4)));
 		task.setAuthor(FactoryUtil.randomPerson());

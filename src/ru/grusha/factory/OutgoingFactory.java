@@ -17,7 +17,7 @@ public class OutgoingFactory extends Factory{
 	 * фабричный метод, возвращающий заполненный исходящий документ
 	 */
 	@Override
-	public Document createDocument() {
+	public Document getDocument() {
 		Outgoing outgoing = new Outgoing();
 		outgoing.setID((FactoryUtil.createRandomInteger(4)));
 		outgoing.setAuthor(FactoryUtil.randomPerson());
