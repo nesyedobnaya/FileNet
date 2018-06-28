@@ -2,6 +2,7 @@ package ru.grusha.factory;
 
 import ru.grusha.model.Document;
 import ru.grusha.model.Incoming;
+import ru.grusha.utils.FactoryUtil;
 
 public class IncomingFactory extends Factory{
 	

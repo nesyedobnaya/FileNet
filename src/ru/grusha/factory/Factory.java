@@ -3,12 +3,13 @@ package ru.grusha.factory;
 import java.text.SimpleDateFormat;
 import ru.grusha.exeption.DocumentExistsExeption;
 import ru.grusha.model.Document;
-import ru.grusha.storage.DocumentType.DocType;
+import ru.grusha.utils.FactoryUtil;
+import ru.grusha.utils.DocumentType.DocType;
 import ru.grusha.storage.DocumentStorage;
 
 public class Factory {
 	
-	public static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.mm.dd");//формат вывода даты	
+	public static SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy.MM.dd");//формат вывода даты	
 		
 	//генерация общих полей документа
 	public Document fillCommonFields(Document document) {		       

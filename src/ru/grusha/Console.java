@@ -6,7 +6,7 @@ import ru.grusha.exeption.DocumentExistsExeption;
 import ru.grusha.factory.Factory;
 import ru.grusha.model.Document;
 import ru.grusha.storage.DocumentStorage;
-import ru.grusha.storage.DocumentType.DocType;
+import ru.grusha.utils.DocumentType.DocType;
 
 public class Console {
 
@@ -18,7 +18,7 @@ public class Console {
 		for (DocType type : DocType.values()) { 
 			try{
 				Document newDocument=docFactory.createDocument(type);
-				System.out.println(newDocument.toString());//вывод полей документа в консоль для проверки
+				//System.out.println(newDocument.toString());//вывод полей документа в консоль для проверки
 			}catch(DocumentExistsExeption ex){
 				System.out.println(ex.getMessage());	
 			}

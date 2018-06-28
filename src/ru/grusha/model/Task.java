@@ -2,6 +2,8 @@ package ru.grusha.model;
 
 import java.util.Date;
 
+import ru.grusha.utils.FormatUtil;
+
 public class Task extends Document {
 	
 	private Date deliveryDate;//дата выдачи поручения
@@ -55,10 +57,10 @@ public class Task extends Document {
 		return "Поручение № " + getRegistrationNumber()
 			+ ", ID:  " + getID() 
 			+ ", Название документа: " + getName() 
-			+ " Дата регистрации: " + getRegistrationDate() 
+			+ " Дата регистрации: " + FormatUtil.formatDate(getRegistrationDate())
 			+ ", Автор: " + getAuthor() 
 			+ ", Текст документа: "+ getText() 
-			+ ", Дата выдачи: " + getDeliveryDate()
+			+ ", Дата выдачи: " + FormatUtil.formatDate(getDeliveryDate())
 			+ ", Срок исполнения: " + getDueDate()
 			+ ", Ответственный исполнитель: " + getExecutor()				
 			+ ", Исполнено: " + getControleAttribute()

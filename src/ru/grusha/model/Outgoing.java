@@ -1,5 +1,7 @@
 package ru.grusha.model;
 
+import ru.grusha.utils.FormatUtil;
+
 public class Outgoing extends Document {
 	
     private String addressee;//адресат
@@ -27,7 +29,7 @@ public class Outgoing extends Document {
     	return "Исходящий документ №" + getRegistrationNumber()
     		+ ", ID: " + getID() 
     		+ ", Название документа: " + getName() 
-    		+ ", Дата регистрации: " + getRegistrationDate() 
+    		+ ", Дата регистрации: " + FormatUtil.formatDate(getRegistrationDate()) 
     		+ ", Автор: " + getAuthor() 
     		+ ", Текст документа: " + getText()
     		+ ", Адресат: "+ getAddressee()

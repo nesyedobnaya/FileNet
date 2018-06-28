@@ -2,7 +2,7 @@ package ru.grusha.model;
 
 import java.util.Date;
 
-import ru.grusha.factory.Factory;
+import ru.grusha.utils.FormatUtil;
 
 public abstract class Document implements Comparable<Document>{
 	 
@@ -80,8 +80,8 @@ public abstract class Document implements Comparable<Document>{
 	
 	public String print(){
 		return "Документ"
-				+" от "+Factory.dateFormat.format(this.getRegistrationDate()) 
-				+ " №" + this.getRegistrationNumber();
+				+" от "+FormatUtil.formatDate(getRegistrationDate()) 
+				+ " №" + getRegistrationNumber();
 	}
 }
 	    

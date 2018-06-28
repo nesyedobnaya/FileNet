@@ -1,4 +1,4 @@
-package ru.grusha.storage;
+package ru.grusha.utils;
 
 public class DocumentType {
 	

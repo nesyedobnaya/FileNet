@@ -2,6 +2,8 @@ package ru.grusha.model;
 
 import java.util.Date;
 
+import ru.grusha.utils.FormatUtil;
+
 public class Incoming extends Document{
 	 
 	private String sender;//отправитель 
@@ -52,6 +54,6 @@ public class Incoming extends Document{
 			+", Отправитель: "+ getSender()			
 			+", Адресат: " + getAddressee()			
 			+", Исходящий номер: "+ getOutgoingNumber()			
-			+", Исходящая дата регистрации: " + getOutgoingRegistrationDate();    
+			+", Исходящая дата регистрации: " + FormatUtil.formatDate(getOutgoingRegistrationDate());    
 	}
 }

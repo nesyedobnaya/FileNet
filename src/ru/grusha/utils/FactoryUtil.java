@@ -1,4 +1,4 @@
-package ru.grusha.factory;
+package ru.grusha.utils;
 
 import java.util.Date;
 import java.util.Random;

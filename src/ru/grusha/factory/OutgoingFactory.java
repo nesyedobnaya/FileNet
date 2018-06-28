@@ -4,6 +4,7 @@ import java.util.Random;
 
 import ru.grusha.model.Document;
 import ru.grusha.model.Outgoing;
+import ru.grusha.utils.FactoryUtil;
 
 public class OutgoingFactory extends Factory{	
 	
