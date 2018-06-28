@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import ru.grusha.exeption.DocumentExistsExeption;
 import ru.grusha.model.Document;
 import ru.grusha.utils.FactoryUtil;
-import ru.grusha.utils.DocumentType.DocType;
+import ru.grusha.utils.DocType;
 import ru.grusha.storage.DocumentStorage;
 
 public class Factory {

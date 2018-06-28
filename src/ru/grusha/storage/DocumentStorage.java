@@ -7,12 +7,12 @@ import ru.grusha.model.Document;
 
 public class DocumentStorage {
  
-	public static TreeSet<Document> data = new TreeSet<Document>();
+	public static final TreeSet<Document> data = new TreeSet<Document>();
 		
 	//проверка совпадения регистрационного номера с другими документами набора	 
 	public static void check(TreeSet<Document> tree, String registrationNumber) throws DocumentExistsExeption{
 		for (Document documentFromTree: tree) {        
-			if (registrationNumber==documentFromTree.getRegistrationNumber())  {         	
+			if (registrationNumber.equals(documentFromTree.getRegistrationNumber()))  {         	
 				throw new DocumentExistsExeption("Документ с таким регистрационным номером уже существует");        
 			}		
 		}

@@ -65,17 +65,13 @@ public abstract class Document implements Comparable<Document>{
 	@Override 	    
 	public int compareTo(Document entry){ 
 	    
-		//сортировка по дате регистрации
+		//сравнение по дате регистрации
 		Date dateDoc = this.registrationDate;
 		int result = dateDoc.compareTo(entry.registrationDate); 
 		if(result != 0) return result; 
 
-		//сортировка по регистрационному номеру
-		String regDoc=this.registrationNumber;
-		result = regDoc.compareTo(entry.getRegistrationNumber()); 
-		if(result!=0) 
-		return result; 
-		return 0;	 
+		//сравнение по регистрационному номеру
+		return this.registrationNumber.compareTo(entry.getRegistrationNumber()); 
 	} 
 	
 	public String print(){

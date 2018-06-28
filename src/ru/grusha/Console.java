@@ -6,7 +6,7 @@ import ru.grusha.exeption.DocumentExistsExeption;
 import ru.grusha.factory.Factory;
 import ru.grusha.model.Document;
 import ru.grusha.storage.DocumentStorage;
-import ru.grusha.utils.DocumentType.DocType;
+import ru.grusha.utils.DocType;
 
 public class Console {
 
