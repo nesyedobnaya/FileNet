@@ -65,5 +65,8 @@ public class Task extends Document {
 			+ ", Ответственный исполнитель: " + getExecutor()				
 			+ ", Исполнено: " + getControleAttribute()
 			+ ", Контролер: " + getController();
-	}	
+	}
+
+	@Override
+	public void setTableName() {}	
 }

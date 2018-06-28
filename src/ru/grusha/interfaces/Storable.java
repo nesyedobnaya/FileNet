@@ -1,8 +1,8 @@
-package interfaces;
+package ru.grusha.interfaces;
 
 public interface Storable {
 	
-	void getDocumentID();
+	int getID();
 	
 	void setTableName();
 }

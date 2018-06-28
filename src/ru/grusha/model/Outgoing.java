@@ -35,4 +35,7 @@ public class Outgoing extends Document {
     		+ ", Адресат: "+ getAddressee()
     		+ ", Способ доставки: "+ getDelivery();       
 	}
+
+	@Override
+	public void setTableName() {}
 }

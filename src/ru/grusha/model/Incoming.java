@@ -56,4 +56,7 @@ public class Incoming extends Document{
 			+", Исходящий номер: "+ getOutgoingNumber()			
 			+", Исходящая дата регистрации: " + FormatUtil.formatDate(getOutgoingRegistrationDate());    
 	}
+
+	@Override
+	public void setTableName() {}
 }
