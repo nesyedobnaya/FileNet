@@ -27,7 +27,6 @@ public class Factory {
 		Document document = createDocumentOfCertainType(type);
 		document.setRegistrationNumber(registrationNumber);
 		fillCommonFields(document);
-		DocumentStorage.data.add(document);
 		return document;    	
 	}	      
        

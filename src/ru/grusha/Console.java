@@ -18,6 +18,7 @@ public class Console {
 		for (DocType type : DocType.values()) { 
 			try{
 				Document newDocument=docFactory.createDocument(type);
+				DocumentStorage.data.add(newDocument);
 				//System.out.println(newDocument.toString());//вывод полей документа в консоль для проверки
 			}catch(DocumentExistsExeption ex){
 				System.out.println(ex.getMessage());	
