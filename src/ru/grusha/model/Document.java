@@ -74,6 +74,9 @@ public abstract class Document implements Comparable<Document>{
 		return this.registrationNumber.compareTo(entry.getRegistrationNumber()); 
 	} 
 	
+	/**
+	 * @return возвращает строку, которая записывается в отчет
+	 */
 	public String print(){
 		return "Документ"
 				+" от "+FormatUtil.formatDate(getRegistrationDate()) 

@@ -8,8 +8,13 @@ import ru.grusha.model.Document;
 public class DocumentStorage {
  
 	public static final TreeSet<Document> data = new TreeSet<Document>();
-		
-	//проверка совпадения регистрационного номера с другими документами набора	 
+	
+	/**
+	 * проверка совпадения регистрационного номера с другими документами набора	
+	 * @param tree набор документов
+	 * @param registrationNumber регистрационный номер документа, который требуется добавить в набор
+	 * @throws DocumentExistsExeption - документ с таким номером может уже существовать в наборе
+	 */
 	public static void check(TreeSet<Document> tree, String registrationNumber) throws DocumentExistsExeption{
 		for (Document documentFromTree: tree) {        
 			if (registrationNumber.equals(documentFromTree.getRegistrationNumber()))  {         	

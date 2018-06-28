@@ -3,22 +3,25 @@ package ru.grusha;
 import java.util.TreeSet;
 
 import ru.grusha.exeption.DocumentExistsExeption;
-import ru.grusha.factory.Factory;
+import ru.grusha.factory.Generator;
 import ru.grusha.model.Document;
 import ru.grusha.storage.DocumentStorage;
 import ru.grusha.utils.DocType;
 
+/**
+ * 
+ * @author nesyedobnaya
+ * класс для создания документов различных типов и вывода в консоль отчета о созданных документах
+ */
 public class Console {
 
-	public static void main(String[] args) throws DocumentExistsExeption {
+	public static void main(String[] args) {
 
-		Factory docFactory = new Factory();
+		Generator generator = new Generator();
 		
-		//создание документов
 		for (DocType type : DocType.values()) { 
-			try{
-				Document newDocument=docFactory.createDocument(type);
-				DocumentStorage.data.add(newDocument);
+			try {
+				Document newDocument=generator.createDocument(type);
 				//System.out.println(newDocument.toString());//вывод полей документа в консоль для проверки
 			}catch(DocumentExistsExeption ex){
 				System.out.println(ex.getMessage());	
