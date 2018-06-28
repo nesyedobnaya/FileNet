@@ -8,6 +8,8 @@ public class FactoryUtil {
 	
 		public static String[] people = {"Иванов И.И.", "Петров Г.О.", "Новикова Е.А.", 
 				"Афанасьева И.Б.", "Шляпкин В.И."};
+		
+		public static String[] delivery = {"Курьер", "Факс", "Электронная почта"};
 	
 		//генерация n-значного числа
 		public static int createRandomInteger(int digits){
@@ -16,7 +18,7 @@ public class FactoryUtil {
 	     
 		//случайный выбор персоны
 		public static String randomPerson(){
-			return (people[new Random().nextInt(5)]);
+			return (people[new Random().nextInt(people.length)]);
 		}
 		
 		//генерация случайной даты
