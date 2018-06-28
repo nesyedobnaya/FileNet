@@ -12,7 +12,6 @@ import ru.grusha.storage.DocumentStorage;
 public class Generator {
 	
 	/**
-	 * 
 	 * @param type - тип требующегося документа
 	 * @return - созданный документ
 	 * @throws DocumentExistsExeption - документ с таким номером уже существует
