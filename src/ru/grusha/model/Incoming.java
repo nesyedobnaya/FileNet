@@ -2,29 +2,30 @@ package ru.grusha.model;
 
 import java.util.Date;
 
+import ru.grusha.staff.Person;
 import ru.grusha.utils.FormatUtil;
 
 public class Incoming extends Document{
 	 
-	private String sender;//отправитель 
-	private String addressee;//адресат    
+	private Person sender;//отправитель 
+	private Person addressee;//адресат    
 	private int outgoingNumber;//исходящий номер 
 	private Date outgoingRegistrationDate;//исходящая дата регистрации	
 	
-	public String getSender() {
+	public Person getSender() {
 		return sender;
 	}
 
-	public void setSender(String addresser) {
-		this.sender = addresser;
+	public void setSender(Person person) {
+		this.sender = person;
 	}
 
-	public String getAddressee() {
+	public Person getAddressee() {
 		return addressee;
 	}
 
-	public void setAddressee(String addressee) {
-		this.addressee = addressee;
+	public void setAddressee(Person person) {
+		this.addressee = person;
 	}
 
 	public int getOutgoingNumber() {
@@ -49,10 +50,10 @@ public class Incoming extends Document{
 			+", ID: " + getID() 
 			+", Название документа: " + getName() 			
 			+", Дата регистрации: " + getRegistrationDate() 			
-			+", Автор: " + getAuthor() 			
+			+", Автор: " + getAuthor().getFullName() 			
 			+", Текст документа: "+getText()			
-			+", Отправитель: "+ getSender()			
-			+", Адресат: " + getAddressee()			
+			+", Отправитель: "+ getSender().getFullName()			
+			+", Адресат: " + getAddressee().getFullName()			
 			+", Исходящий номер: "+ getOutgoingNumber()			
 			+", Исходящая дата регистрации: " + FormatUtil.formatDate(getOutgoingRegistrationDate());    
 	}

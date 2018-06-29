@@ -3,6 +3,7 @@ package ru.grusha.model;
 import java.util.Date;
 
 import ru.grusha.interfaces.Storable;
+import ru.grusha.staff.Person;
 import ru.grusha.utils.FormatUtil;
 
 public abstract class Document implements Comparable<Document>, Storable{
@@ -12,7 +13,7 @@ public abstract class Document implements Comparable<Document>, Storable{
 	private String text;//текст документа	     
 	private String registrationNumber;//регистрационный номер	     
 	private Date registrationDate;//дата регистрации	    
-	private String author;//автор документа	
+	private Person author;//автор документа	
 	
 				
 	public int getID() {
@@ -55,12 +56,12 @@ public abstract class Document implements Comparable<Document>, Storable{
 		this.registrationDate = registrationDate;
 	}
 
-	public String getAuthor() {
+	public Person getAuthor() {
 		return author;
 	}
 
-	public void setAuthor(String author) {
-		this.author = author;
+	public void setAuthor(Person person) {
+		this.author = person;
 	}
 	
 	@Override 	    

@@ -2,15 +2,16 @@ package ru.grusha.model;
 
 import java.util.Date;
 
+import ru.grusha.staff.Person;
 import ru.grusha.utils.FormatUtil;
 
 public class Task extends Document {
 	
 	private Date deliveryDate;//дата выдачи поручения
 	private Date dueDate;//срок исполнения поручения   
-	private String executor;//ответственный исполнитель   
+	private Person executor;//ответственный исполнитель   
 	private boolean controleAttribute;//признак контрольности        
-	private String controller;//контролер поручения
+	private Person controller;//контролер поручения
     
 	public Date getDeliveryDate() {
 		return deliveryDate;
@@ -28,20 +29,20 @@ public class Task extends Document {
 		this.dueDate = dueDate;
 	}
 	
-	public String getExecutor() {
+	public Person getExecutor() {
 		return executor;
 	}
 
-	public void setExecutor(String executor) {
-		this.executor = executor;
+	public void setExecutor(Person person) {
+		this.executor = person;
 	}
 
-	public String getController() {
+	public Person getController() {
 		return controller;
 	}
 
-	public void setController(String controller) {
-		this.controller = controller;
+	public void setController(Person person) {
+		this.controller = person;
 	}
 
 	public boolean getControleAttribute() {
@@ -58,13 +59,13 @@ public class Task extends Document {
 			+ ", ID:  " + getID() 
 			+ ", Название документа: " + getName() 
 			+ " Дата регистрации: " + FormatUtil.formatDate(getRegistrationDate())
-			+ ", Автор: " + getAuthor() 
+			+ ", Автор: " + getAuthor().getFullName() 
 			+ ", Текст документа: "+ getText() 
 			+ ", Дата выдачи: " + FormatUtil.formatDate(getDeliveryDate())
 			+ ", Срок исполнения: " + getDueDate()
-			+ ", Ответственный исполнитель: " + getExecutor()				
+			+ ", Ответственный исполнитель: " + getExecutor().getFullName()				
 			+ ", Исполнено: " + getControleAttribute()
-			+ ", Контролер: " + getController();
+			+ ", Контролер: " + getController().getFullName();
 	}
 
 	@Override
