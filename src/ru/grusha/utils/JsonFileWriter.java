@@ -12,6 +12,11 @@ import ru.grusha.staff.Person;
 
 public class JsonFileWriter {
 	
+	/**
+	 * метод для записи в json файл отчета по созданным доументам автора
+	 * @param author автор набора документов
+	 * @param documentsOfAuthor набор документов
+	 */
 	public void reportToAFile(Person author, List<Document> documentsOfAuthor){
 		
 		Gson gson = new GsonBuilder()

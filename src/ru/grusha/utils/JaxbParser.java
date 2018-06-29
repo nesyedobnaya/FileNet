@@ -8,7 +8,13 @@ import javax.xml.bind.Unmarshaller;
 
 public class JaxbParser {	
  	
- 	public static Object unMarshal(File file, Class classOfObject) {
+	/**
+	 * 
+	 * @param file xml файл, содержащий набор объектов 
+	 * @param classOfObject класс объектов в xml файле
+	 * @return набор объектов
+	 */
+ 	public static Object unMarshal(File file, Class<?> classOfObject) {
  		
  		try {
  			JAXBContext jaxbContext = JAXBContext.newInstance(classOfObject);		

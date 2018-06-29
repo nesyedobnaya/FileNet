@@ -5,10 +5,10 @@ import java.util.Date;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
-import ru.grusha.staff.Departments;
-import ru.grusha.staff.Organizations;
-import ru.grusha.staff.People;
 import ru.grusha.staff.Person;
+import ru.grusha.wrappers.Departments;
+import ru.grusha.wrappers.Organizations;
+import ru.grusha.wrappers.People;
 
 /**
  * 
@@ -18,7 +18,7 @@ import ru.grusha.staff.Person;
 public class FactoryUtil {
 	
 	/**
-	 * список имен для заполнения полей документов
+	 * классы, содержащие наборы оргштатных единиц
 	 */
 	public static People loadedPeople=new People(); 
 	public static Departments loadedDepartments=new Departments();
@@ -54,6 +54,9 @@ public class FactoryUtil {
 		return new Date(System.currentTimeMillis() - ThreadLocalRandom.current().nextLong(1000*60*60*24*daysBack));
 	}
 	
+	/**
+	 * Метод, осуществляющий загрузку оргштатных единиц из xml файлов 
+	 */
 	public static void loadStaff() {
 		
 		File filePeople = new File("D://XML/People.xml");

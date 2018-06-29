@@ -10,11 +10,12 @@ import ru.grusha.model.Document;
 import ru.grusha.staff.Person;
 import ru.grusha.storage.DocumentStorage;
 import ru.grusha.utils.DocumentType;
+import ru.grusha.utils.FactoryUtil;
 import ru.grusha.utils.JsonFileWriter;
 /**
  * 
  * @author nesyedobnaya
- * класс для создания документов различных типов и вывода в консоль отчета о созданных документах
+ * класс для создания документов различных типов и вывода в консоль и в JSON файл отчета о созданных документах
  */
 public class Console {
 
@@ -22,6 +23,7 @@ public class Console {
 
 		Generator generator = new Generator();
 		JsonFileWriter jsonWriter = new JsonFileWriter();
+		FactoryUtil.loadStaff();
 		
 		for (DocumentType type : DocumentType.values()) { 
 			try {
