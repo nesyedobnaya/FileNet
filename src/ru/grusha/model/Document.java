@@ -2,9 +2,10 @@ package ru.grusha.model;
 
 import java.util.Date;
 
+import ru.grusha.interfaces.Storable;
 import ru.grusha.utils.FormatUtil;
 
-public abstract class Document implements Comparable<Document>{
+public abstract class Document implements Comparable<Document>, Storable{
 	 
 	private int ID;//идентификатор документа
 	private String name;//название документа	  

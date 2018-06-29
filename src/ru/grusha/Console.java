@@ -6,7 +6,7 @@ import ru.grusha.exeption.DocumentExistsExeption;
 import ru.grusha.factory.Generator;
 import ru.grusha.model.Document;
 import ru.grusha.storage.DocumentStorage;
-import ru.grusha.utils.DocType;
+import ru.grusha.utils.DocumentType;
 
 /**
  * 
@@ -19,7 +19,7 @@ public class Console {
 
 		Generator generator = new Generator();
 		
-		for (DocType type : DocType.values()) { 
+		for (DocumentType type : DocumentType.values()) { 
 			try {
 				Document newDocument=generator.createDocument(type);
 				//System.out.println(newDocument.toString());//вывод полей документа в консоль для проверки
