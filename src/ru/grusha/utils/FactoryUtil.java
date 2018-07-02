@@ -14,13 +14,13 @@ public class FactoryUtil {
 	/**
 	 * список имен для заполнения полей документов
 	 */
-	public static String[] people = {"Иванов И.И.", "Петров Г.О.", "Новикова Е.А.", 
+	public static final String[] PEOPLE = {"Иванов И.И.", "Петров Г.О.", "Новикова Е.А.", 
 			"Афанасьева И.Б.", "Шляпкин В.И."};
 	
 	/**
 	 * список возможных типов доставки для заполнения поля "Способ доставки"
 	 */
-	public static String[] delivery = {"Курьер", "Факс", "Электронная почта"};
+	public static final String[] DELIVERY = {"Курьер", "Факс", "Электронная почта"};
 
 	/**
 	 * генерация n-значного числа
@@ -35,7 +35,7 @@ public class FactoryUtil {
 	 * @return случайная персона из списка
 	 */
 	public static String randomPerson(){
-		return (people[new Random().nextInt(people.length)]);
+		return (PEOPLE[new Random().nextInt(PEOPLE.length)]);
 	}
 		
 	/**
