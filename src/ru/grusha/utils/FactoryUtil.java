@@ -20,6 +20,7 @@ public class FactoryUtil {
 	/**
 	 * классы, содержащие наборы оргштатных единиц
 	 */
+
 	public static People loadedPeople=new People(); 
 	public static Departments loadedDepartments=new Departments();
 	public static Organizations loadedOrganizations=new Organizations();
