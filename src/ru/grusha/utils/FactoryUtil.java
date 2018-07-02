@@ -27,7 +27,7 @@ public class FactoryUtil {
 	/**
 	 * список возможных типов доставки для заполнения поля "Способ доставки"
 	 */
-	public static String[] delivery = {"Курьер", "Факс", "Электронная почта"};
+	public static final String[] DELIVERY = {"Курьер", "Факс", "Электронная почта"};
 
 	/**
 	 * генерация n-значного числа
@@ -41,6 +41,7 @@ public class FactoryUtil {
 	/**
 	 * @return случайная персона из списка
 	 */
+
 	public static Person randomPerson(){
 		return loadedPeople.listOfPeople.get(new Random().nextInt(loadedPeople.listOfPeople.size()));
 	}

@@ -24,7 +24,7 @@ public class OutgoingFactory extends Factory{
 		outgoing.setName("Название документа");
 		outgoing.setText((FactoryUtil.createRandomInteger(10))+"");
 		outgoing.setRegistrationDate(FactoryUtil.getRandomDate(10000));
-		outgoing.setDelivery(FactoryUtil.delivery[new Random().nextInt(FactoryUtil.delivery.length)]);
+		outgoing.setDelivery(FactoryUtil.DELIVERY[new Random().nextInt(FactoryUtil.DELIVERY.length)]);
 		outgoing.setAddressee(FactoryUtil.randomPerson());     	
 		return outgoing; 
 	}	   
