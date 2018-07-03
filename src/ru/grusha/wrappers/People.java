@@ -16,5 +16,5 @@ import ru.grusha.staff.Person;
 public class People{
 
 	@XmlElement(name = "person")
-	public List<Person> listOfPeople = null;
+	public List<Person> employees = null;
 }

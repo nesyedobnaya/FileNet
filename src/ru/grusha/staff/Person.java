@@ -8,8 +8,7 @@ public class Person extends Staff implements Comparable<Person>{
 	private String firstName;//имя
 	private String patronymic;//отчество
 	private String position;//должность
-		
-	@XmlAttribute
+
 	public void setLastName(String name) {
 		this.lastName = name;
 	}
@@ -17,8 +16,7 @@ public class Person extends Staff implements Comparable<Person>{
 	public String getLastName() {
 		return lastName;
 	}
-	
-	@XmlAttribute
+
 	public void setFirstName(String name) {
 		this.firstName = name;
 	}
@@ -27,7 +25,6 @@ public class Person extends Staff implements Comparable<Person>{
 		return firstName;
 	}
 
-	@XmlAttribute
 	public void setPatronymic(String name) {
 		this.patronymic = name;
 	}
@@ -35,8 +32,7 @@ public class Person extends Staff implements Comparable<Person>{
 	public String getPatronymic() {
 		return patronymic;
 	}
-	
-	@XmlAttribute
+
 	public void setPosition(String name) {
 		this.position = name;
 	}

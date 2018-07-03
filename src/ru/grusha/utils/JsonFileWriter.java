@@ -29,4 +29,13 @@ public class JsonFileWriter {
 			e1.printStackTrace();
 		}
 	}
+	
+	public String objectToJsonString(Object object){
+		
+		Gson gson = new GsonBuilder()
+				.setPrettyPrinting()
+				.create();
+		String json = gson.toJson(object);
+		return json;
+	}
 }
