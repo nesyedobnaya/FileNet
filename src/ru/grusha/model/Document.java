@@ -2,10 +2,13 @@ package ru.grusha.model;
 
 import java.util.Date;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 import ru.grusha.interfaces.Storable;
 import ru.grusha.staff.Person;
 import ru.grusha.utils.FormatUtil;
 
+@XmlRootElement(name = "document")
 public abstract class Document implements Comparable<Document>, Storable{
 	 
 	private int ID;//идентификатор документа

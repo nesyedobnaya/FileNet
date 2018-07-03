@@ -2,9 +2,12 @@ package ru.grusha.model;
 
 import java.util.Date;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 import ru.grusha.staff.Person;
 import ru.grusha.utils.FormatUtil;
 
+@XmlRootElement(name = "incoming")
 public class Incoming extends Document{
 	 
 	private Person sender;//отправитель 

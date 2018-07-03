@@ -1,8 +1,11 @@
 package ru.grusha.model;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 import ru.grusha.staff.Person;
 import ru.grusha.utils.FormatUtil;
 
+@XmlRootElement(name = "outgoing")
 public class Outgoing extends Document {
 	
     private Person addressee;//адресат
