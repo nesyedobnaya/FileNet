@@ -18,7 +18,7 @@ public class ReportUtil {
 				if (authorFromSet.equals(documentFromStorage.getAuthor())) {
 					System.out.println("\t- "+documentFromStorage.print());
 					documentsOfAuthor.add(documentFromStorage);
-		        }        		
+				}        		
 			}
 		}
 	}
@@ -32,12 +32,12 @@ public class ReportUtil {
 	}
 	
 	public static List<Document> getDocumentsOfAuthor (TreeSet<Document> data, Person author){
-			List<Document> documentsOfAuthor = new ArrayList<Document>();       	        	
-			for (Document documentFromStorage: data) {
-				if (author.equals(documentFromStorage.getAuthor())) {
-					documentsOfAuthor.add(documentFromStorage);
-		        }        		
-			}
+		List<Document> documentsOfAuthor = new ArrayList<Document>();       	        	
+		for (Document documentFromStorage: data) {
+			if (author.equals(documentFromStorage.getAuthor())) {
+				documentsOfAuthor.add(documentFromStorage);
+			}        		
+		}
 		return documentsOfAuthor;
 	}
 }
