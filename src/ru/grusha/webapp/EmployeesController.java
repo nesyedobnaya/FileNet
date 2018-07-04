@@ -9,12 +9,9 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import ru.grusha.exeption.DocumentExistsExeption;
-import ru.grusha.factory.Generator;
 import ru.grusha.model.Document;
 import ru.grusha.staff.Person;
 import ru.grusha.storage.DocumentStorage;
-import ru.grusha.utils.DocumentType;
 import ru.grusha.utils.FactoryUtil;
 import ru.grusha.utils.JaxbParser;
 import ru.grusha.utils.JsonFileWriter;

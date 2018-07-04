@@ -44,7 +44,7 @@ public class FactoryUtil {
 	 */
 
 	public static Person randomPerson(){
-		return loadedPeople.employees.get(new Random().nextInt(loadedPeople.employees.size()));
+		return loadedPeople.getEmployees().get(new Random().nextInt(loadedPeople.getEmployees().size()));
 	}
 		
 	/**
@@ -62,8 +62,8 @@ public class FactoryUtil {
 	public static void loadStaff() {
 		
 		File filePeople = new File("D://XML/People2.xml");
-		File fileOrganizations = new File("D://XML/Organizations.xml");	 	    
-		File fileDepartments = new File("D://XML/Departments.xml");
+		File fileOrganizations = new File("D://XML/Organizations2.xml");	 	    
+		File fileDepartments = new File("D://XML/Departments2.xml");
 		
 		//загрузка из файлов	    
 		loadedPeople=(People)JaxbParser.unMarshal(filePeople, People.class);				
