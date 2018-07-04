@@ -8,7 +8,7 @@ import ru.grusha.interfaces.Storable;
 import ru.grusha.staff.Person;
 import ru.grusha.utils.FormatUtil;
 
-@XmlRootElement(name = "document")
+@XmlRootElement
 public abstract class Document implements Comparable<Document>, Storable{
 	 
 	private int ID;//идентификатор документа

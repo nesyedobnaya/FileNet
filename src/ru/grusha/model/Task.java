@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import ru.grusha.staff.Person;
 import ru.grusha.utils.FormatUtil;
 
-@XmlRootElement(name = "task")
+@XmlRootElement
 public class Task extends Document {
 	
 	private Date deliveryDate;//дата выдачи поручения

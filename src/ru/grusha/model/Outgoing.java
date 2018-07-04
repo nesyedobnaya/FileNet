@@ -5,7 +5,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import ru.grusha.staff.Person;
 import ru.grusha.utils.FormatUtil;
 
-@XmlRootElement(name = "outgoing")
+@XmlRootElement
 public class Outgoing extends Document {
 	
     private Person addressee;//адресат
