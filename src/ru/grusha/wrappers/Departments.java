@@ -16,5 +16,5 @@ import ru.grusha.staff.Department;
 public class Departments{
 
 	@XmlElement(name = "department")
-	public List<Department> list = null;
+	private List<Department> list = null;
 }

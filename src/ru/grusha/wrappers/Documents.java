@@ -29,8 +29,7 @@ public class Documents{
     })
 	public List<Document> listOfDocuments = null;
 
-	public void setDocuments(ArrayList<Document> arrayList) {
-	
+	public void setDocuments(ArrayList<Document> arrayList) {	
 		this.listOfDocuments = arrayList; 	
 	}
 }

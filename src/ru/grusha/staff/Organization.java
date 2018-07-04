@@ -4,7 +4,7 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement(name = "organization")
-public class Organization {
+public class Organization extends Staff{
 	
 	private String fullName;//полное название
 	private String shortName;//краткое название

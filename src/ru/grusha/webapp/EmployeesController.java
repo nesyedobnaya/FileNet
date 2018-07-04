@@ -9,12 +9,9 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import ru.grusha.exeption.DocumentExistsExeption;
-import ru.grusha.factory.Generator;
 import ru.grusha.model.Document;
 import ru.grusha.staff.Person;
 import ru.grusha.storage.DocumentStorage;
-import ru.grusha.utils.DocumentType;
 import ru.grusha.utils.FactoryUtil;
 import ru.grusha.utils.JaxbParser;
 import ru.grusha.utils.JsonFileWriter;
@@ -26,7 +23,7 @@ public class EmployeesController {
 	@Path("/employees")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public String sayHelloXML(){
+	public String employeesToJson(){
 		JsonFileWriter jsonWriter = new JsonFileWriter();
 		String peopleJson = jsonWriter.objectToJsonString(FactoryUtil.loadedPeople);
 		return peopleJson;
@@ -35,7 +32,7 @@ public class EmployeesController {
 	@Path("/employees/{id}")
 	@GET
 	@Produces(MediaType.TEXT_XML)
-	public String sayHelloJson(@PathParam("id") int ID){
+	public String documentsOfAuthorsToXML(@PathParam("id") int ID){
 		
 		Documents docs = new Documents();
 		

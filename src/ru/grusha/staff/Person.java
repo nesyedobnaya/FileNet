@@ -1,7 +1,5 @@
 package ru.grusha.staff;
 
-import javax.xml.bind.annotation.XmlAttribute;
-
 public class Person extends Staff implements Comparable<Person>{
 	
 	private String lastName;//фамилия
