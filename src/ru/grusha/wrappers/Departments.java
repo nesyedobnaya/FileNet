@@ -21,8 +21,4 @@ public class Departments{
 	public List<Department> getListOfDepartments() {
 		return listOfDepartments;
 	}
-
-	public void setListOfDepartments(List<Department> listOfDepartments) {
-		this.listOfDepartments = listOfDepartments;
-	}
 }
