@@ -1,6 +1,7 @@
 package ru.grusha.utils;
 
 import java.io.File;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.Random;
@@ -78,6 +79,7 @@ public class FactoryUtil {
 	 */
 	public static void saveStaffInDB() {
 		DbService dbService = new DbService();
+		Connection connection = dbService.getConnection();
 		try {
 			dbService.createDB();
 		} catch (ClassNotFoundException | SQLException e) {
@@ -85,9 +87,9 @@ public class FactoryUtil {
 			e.printStackTrace();
 		}
 		try {
-			dbService.insertPeople(FactoryUtil.loadedPeople);
-			dbService.insertDepartments(FactoryUtil.loadedDepartments);
-			dbService.insertOrganizations(FactoryUtil.loadedOrganizations);
+			dbService.insertPeople(FactoryUtil.loadedPeople, connection);
+			dbService.insertDepartments(FactoryUtil.loadedDepartments,connection);
+			dbService.insertOrganizations(FactoryUtil.loadedOrganizations,connection);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
