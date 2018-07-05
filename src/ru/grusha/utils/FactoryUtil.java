@@ -1,10 +1,16 @@
 package ru.grusha.utils;
 
 import java.io.File;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Date;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
+import ru.grusha.dbservice.DbCreator;
 import ru.grusha.staff.Person;
 import ru.grusha.wrappers.Departments;
 import ru.grusha.wrappers.Organizations;
@@ -70,6 +76,53 @@ public class FactoryUtil {
 			
 		loadedDepartments=(Departments)JaxbParser.unMarshal(fileDepartments, Departments.class);	        
 			
-		loadedOrganizations=(Organizations)JaxbParser.unMarshal(fileOrganizations, Organizations.class);       
+		loadedOrganizations=(Organizations)JaxbParser.unMarshal(fileOrganizations, Organizations.class); 
+		
+		DbCreator dbCreator = new DbCreator();
+		try {
+			dbCreator.createDB();
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			dbCreator.insertPeople(FactoryUtil.loadedPeople);
+			dbCreator.insertDepartments(FactoryUtil.loadedDepartments);
+			dbCreator.insertOrganizations(FactoryUtil.loadedOrganizations);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		Connection connection = dbCreator.getConnection();
+		try {
+			Statement statement = connection.createStatement();
+			ResultSet resultSet =statement.executeQuery("select * from Person");;
+			ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
+			for (int x=1; x<=resultSetMetaData.getColumnCount();x++) System.out.format("%30s", resultSetMetaData.getColumnName(x)+ " | ");
+			while (resultSet.next()){
+				System.out.println();
+				for (int x=1;x<=resultSetMetaData.getColumnCount();x++) System.out.format("%30s", resultSet.getString(x) + " | ");
+			}
+				
+			ResultSet resultSet2 = statement.executeQuery("select * from Department");;
+			ResultSetMetaData resultSetMetaData2 = resultSet2.getMetaData();
+			for (int x=1; x<=resultSetMetaData2.getColumnCount();x++) System.out.format("%30s", resultSetMetaData2.getColumnName(x)+ " | ");
+			while (resultSet2.next()){
+				System.out.println();
+				for (int x=1;x<=resultSetMetaData2.getColumnCount();x++) System.out.format("%30s", resultSet2.getString(x) + " | ");
+			}
+			
+			ResultSet resultSet3 = statement.executeQuery("select * from Organization");;
+			ResultSetMetaData resultSetMetaData3 = resultSet3.getMetaData();
+			for (int x=1; x<=resultSetMetaData3.getColumnCount();x++) System.out.format("%30s", resultSetMetaData3.getColumnName(x)+ " | ");
+			while (resultSet3.next()){
+				System.out.println();
+				for (int x=1;x<=resultSetMetaData3.getColumnCount();x++) System.out.format("%30s", resultSet3.getString(x) + " | ");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
 	}
 }

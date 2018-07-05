@@ -20,13 +20,13 @@ public class DbCreator {
 
 	public void createDB() throws ClassNotFoundException, SQLException {
 		Class.forName(DRIVER);
-		Connection connection = getConnection(JDBC_URL);
+		Connection connection = getConnection();
 		
 		//удаление таблиц
 		try {
 			connection.createStatement().executeUpdate("DROP TABLE PERSON");
-			//connection.createStatement().executeUpdate("DROP TABLE DEPARTMENT");
-			//connection.createStatement().executeUpdate("DROP TABLE ORGANIZATION");
+			connection.createStatement().executeUpdate("DROP TABLE DEPARTMENT");
+			connection.createStatement().executeUpdate("DROP TABLE ORGANIZATION");
 		} catch (SQLException e) {
 			if (!e.getSQLState().equals("42Y55"))//таблицы не существует
 				e.printStackTrace();
@@ -39,7 +39,7 @@ public class DbCreator {
 			connection.createStatement().execute(
 					"Create TABLE Department (id INT primary key, full_name varchar(50), short_name varchar(20), chief varchar(50), telephone varchar(20))");
 			connection.createStatement().execute(
-					"Create TABLE Organization (id INT primary key, full_name varchar(50), short_name varchar(20), chief varchar(50), telephone varchar(20))");
+					"Create TABLE ORGANIZATION (id INT primary key, full_name long varchar, short_name varchar(20), chief varchar(50), telephone varchar(20))");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			System.out.println("Создаваемая таблица уже существует"+e);
@@ -47,7 +47,7 @@ public class DbCreator {
 	}
 
 	public void insertPeople(People people) throws SQLException {
-		Connection connection = getConnection(JDBC_URL);
+		Connection connection = getConnection();
 		ListIterator<Person> listIter = people.getEmployees().listIterator();
 		while (listIter.hasNext()) {
 			Person nextPerson = listIter.next();
@@ -62,7 +62,7 @@ public class DbCreator {
 	}
 	
 	public void insertDepartments(Departments departments) throws SQLException {
-		Connection connection = getConnection(JDBC_URL);
+		Connection connection = getConnection();
 		ListIterator<Department> listIter = departments.getListOfDepartments().listIterator();
 		while (listIter.hasNext()) {
 			Department nextDep = listIter.next();
@@ -77,7 +77,7 @@ public class DbCreator {
 	}
 	
 	public void insertOrganizations(Organizations organizations) throws SQLException {
-		Connection connection = getConnection(JDBC_URL);
+		Connection connection = getConnection();
 		ListIterator<Organization> listIter = organizations.getListOfOrganizations().listIterator();
 		while (listIter.hasNext()) {
 			Organization nextOrg = listIter.next();
@@ -91,9 +91,9 @@ public class DbCreator {
 		}
 	}
 	
-	public Connection getConnection(String JdbcURL) {
+	public Connection getConnection() {
 		try {
-			return DriverManager.getConnection(JdbcURL);
+			return DriverManager.getConnection(JDBC_URL);
 		} catch (SQLException e) {
 			System.out.println("Не удалось установить связь с базой данных");
 		}

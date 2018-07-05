@@ -21,8 +21,4 @@ public class People{
 	public List<Person> getEmployees() {
 		return employees;
 	}
-
-	public void setEmployees(List<Person> employees) {
-		this.employees = employees;
-	}
 }

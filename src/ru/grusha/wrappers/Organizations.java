@@ -21,8 +21,4 @@ public class Organizations{
 	public List<Organization> getListOfOrganizations() {
 		return listOfOrganizations;
 	}
-
-	public void setListOfOrganizations(List<Organization> listOfOrganizations) {
-		this.listOfOrganizations = listOfOrganizations;
-	}
 }
