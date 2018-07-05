@@ -1,4 +1,4 @@
-package ru.grusha.dbservice;
+package ru.grusha.service;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,7 +13,7 @@ import ru.grusha.wrappers.Departments;
 import ru.grusha.wrappers.Organizations;
 import ru.grusha.wrappers.People;
 
-public class DbCreator {
+public class DbService {
 
 	public static final String DRIVER = "org.apache.derby.jdbc.EmbeddedDriver";
 	public static final String JDBC_URL = "jdbc:derby:appDB;create=true";

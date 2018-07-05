@@ -13,6 +13,7 @@ public class MainApplication extends Application{
 
 	public MainApplication(){
 		FactoryUtil.loadStaff();
+		FactoryUtil.saveStaffInDB();
 		
 		Generator generator = new Generator();
 		for (DocumentType type : DocumentType.values()) { 
