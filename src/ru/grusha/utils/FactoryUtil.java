@@ -44,7 +44,7 @@ public class FactoryUtil {
 	 */
 
 	public static Person randomPerson(){
-		return loadedPeople.employees.get(new Random().nextInt(loadedPeople.employees.size()));
+		return loadedPeople.getEmployees().get(new Random().nextInt(loadedPeople.getEmployees().size()));
 	}
 		
 	/**

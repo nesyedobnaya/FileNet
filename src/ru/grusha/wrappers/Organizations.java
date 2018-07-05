@@ -17,4 +17,8 @@ public class Organizations{
 
 	@XmlElement(name = "organization")
 	private List<Organization> listOfOrganizations = null;
+
+	public List<Organization> getListOfOrganizations() {
+		return listOfOrganizations;
+	}
 }

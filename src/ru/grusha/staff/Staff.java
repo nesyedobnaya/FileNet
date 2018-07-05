@@ -2,7 +2,7 @@ package ru.grusha.staff;
 
 public abstract class Staff {
 	
-	protected int ID;//идентификатор
+	private int ID;//идентификатор
 	
 	public int getID() {
 		return ID;
