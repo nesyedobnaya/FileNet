@@ -16,5 +16,13 @@ import ru.grusha.staff.Organization;
 public class Organizations{
 
 	@XmlElement(name = "organization")
-	public List<Organization> listOfOrganizations = null;
+	private List<Organization> listOfOrganizations = null;
+
+	public List<Organization> getListOfOrganizations() {
+		return listOfOrganizations;
+	}
+
+	public void setListOfOrganizations(List<Organization> listOfOrganizations) {
+		this.listOfOrganizations = listOfOrganizations;
+	}
 }

@@ -16,5 +16,13 @@ import ru.grusha.staff.Person;
 public class People{
 
 	@XmlElement(name = "person")
-	public List<Person> listOfPeople = null;
+	private List<Person> employees = null;
+
+	public List<Person> getEmployees() {
+		return employees;
+	}
+
+	public void setEmployees(List<Person> employees) {
+		this.employees = employees;
+	}
 }
