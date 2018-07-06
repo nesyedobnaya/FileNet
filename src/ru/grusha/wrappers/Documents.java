@@ -12,6 +12,7 @@ import ru.grusha.model.Document;
 import ru.grusha.model.Incoming;
 import ru.grusha.model.Outgoing;
 import ru.grusha.model.Task;
+import ru.grusha.staff.Person;
 
 /**
  * 
@@ -27,9 +28,9 @@ public class Documents{
             @XmlElement(name = "incoming", type = Incoming.class),
             @XmlElement(name = "outgoing", type = Outgoing.class)
     })
-	public List<Document> listOfDocuments = null;
-
-	public void setDocuments(ArrayList<Document> arrayList) {
-		this.listOfDocuments = arrayList; 	
+	private List<Document> listOfDocuments = new ArrayList<Document>();
+	
+	public List<Document> getDocuments() {
+		return listOfDocuments;
 	}
 }

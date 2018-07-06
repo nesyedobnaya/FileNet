@@ -94,14 +94,5 @@ public class FactoryUtil {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		try {
-			dbService.printTable(connection, "PERSON");
-			dbService.printTable(connection, "ORGANIZATION");
-			dbService.printTable(connection, "DEPARTMENT");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	}
 }

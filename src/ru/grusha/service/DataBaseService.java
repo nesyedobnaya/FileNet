@@ -222,4 +222,49 @@ public class DataBaseService {
 			}
 		}
 	}
+	
+	public void getPeopleFromTable(Connection connection, People people) throws SQLException {
+		try (Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery("select * from PERSON")) {
+			while (resultSet.next()) {
+				Person person = new Person();
+				person.setID(Integer.parseInt(resultSet.getString("id")));
+				person.setLastName(resultSet.getString("last_name"));
+				person.setFirstName(resultSet.getString("first_name"));
+				person.setPatronymic(resultSet.getString("patronymic"));
+				person.setPosition(resultSet.getString("position"));
+                people.getEmployees().add(person);
+			}
+		}
+	}
+	
+	public void getOrganizationsFromTable(Connection connection, Organizations organizations) throws SQLException {
+		try (Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery("select * from ORGANIZATION")) {
+			while (resultSet.next()) {
+				Organization organization = new Organization();
+				organization.setID(Integer.parseInt(resultSet.getString("id")));
+				organization.setFullName(resultSet.getString("full_name"));
+				organization.setShortName(resultSet.getString("short_name"));
+				organization.setChief(resultSet.getString("chief"));
+				organization.setTelephone(resultSet.getString("telephone"));
+                organizations.getListOfOrganizations().add(organization);
+			}
+		}
+	}
+	
+	public void getDepartmentsFromTable(Connection connection, Departments departments) throws SQLException {
+		try (Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery("select * from DEPARTMENT")) {
+			while (resultSet.next()) {
+				Department department = new Department();
+				department.setID(Integer.parseInt(resultSet.getString("id")));
+				department.setFullName(resultSet.getString("full_name"));
+				department.setShortName(resultSet.getString("short_name"));
+				department.setChief(resultSet.getString("chief"));
+				department.setTelephone(resultSet.getString("telephone"));
+				departments.getListOfDepartments().add(department);
+			}
+		}
+	}
 }
