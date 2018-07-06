@@ -1,5 +1,6 @@
 package ru.grusha.wrappers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlElement;
@@ -16,7 +17,7 @@ import ru.grusha.staff.Person;
 public class People{
 
 	@XmlElement(name = "person")
-	private List<Person> employees = null;
+	private List<Person> employees = new ArrayList<Person>();
 
 	public List<Person> getEmployees() {
 		return employees;
