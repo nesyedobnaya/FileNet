@@ -40,10 +40,9 @@ public class EmployeesController {
 		TreeSet<Person> setOfAuthors = ReportUtil.authorsToSet(DocumentStorage.data);
 		for (Person authorFromSet: setOfAuthors) {
 			if (authorFromSet.getID()==(ID)){
-				docs.setDocuments(new ArrayList<Document>());
 				for (Document documentFromStorage: DocumentStorage.data) {
 					if (authorFromSet.equals(documentFromStorage.getAuthor())) {
-						docs.listOfDocuments.add(documentFromStorage);
+						docs.getDocuments().add(documentFromStorage);
 					}
 				}
 				ReportXML=JaxbParser.marshalToString(docs);

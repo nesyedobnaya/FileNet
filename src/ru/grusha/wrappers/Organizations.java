@@ -1,5 +1,6 @@
 package ru.grusha.wrappers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlElement;
@@ -16,7 +17,7 @@ import ru.grusha.staff.Organization;
 public class Organizations{
 
 	@XmlElement(name = "organization")
-	private List<Organization> listOfOrganizations = null;
+	private List<Organization> listOfOrganizations = new ArrayList<Organization>();
 
 	public List<Organization> getListOfOrganizations() {
 		return listOfOrganizations;
