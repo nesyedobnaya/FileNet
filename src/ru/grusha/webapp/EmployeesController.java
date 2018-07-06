@@ -17,9 +17,8 @@ import ru.grusha.utils.JsonFileWriter;
 import ru.grusha.utils.ReportUtil;
 import ru.grusha.wrappers.Documents;
 
-@Path("/ecm")
+@Path("/employees")
 public class EmployeesController {
-	@Path("/employees")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public String sayHelloXML(){
@@ -28,7 +27,7 @@ public class EmployeesController {
 		return peopleJson;
 	}
 	
-	@Path("/employees/{id}")
+	@Path("/{id}")
 	@GET
 	@Produces(MediaType.TEXT_XML)
 	public String sayHelloJson(@PathParam("id") int ID){

@@ -8,7 +8,7 @@ import ru.grusha.factory.Generator;
 import ru.grusha.utils.DocumentType;
 import ru.grusha.utils.FactoryUtil;
 
-@ApplicationPath("/appl")
+@ApplicationPath("/ecm")
 public class MainApplication extends Application{
 
 	public MainApplication(){
