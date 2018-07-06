@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
@@ -16,7 +18,7 @@ import ru.grusha.wrappers.Departments;
 import ru.grusha.wrappers.Organizations;
 import ru.grusha.wrappers.People;
 
-public class DbService {
+public class DataBaseService {
 
 	public static final String DRIVER = "org.apache.derby.jdbc.EmbeddedDriver";
 	public static final String JDBC_URL = "jdbc:derby:appDB;create=true";
@@ -198,7 +200,26 @@ public class DbService {
 			if (!e.getSQLState().equals("42Y55"))// таблицы не существует
 				e.printStackTrace();
 		}
-
 	}
-
+	
+	/**
+	 * Метод, выводящий содержимое таблицы
+	 * @param connection соединение с БД
+	 * @param tableName название таблицы
+	 * @throws SQLException
+	 */
+	public void printTable(Connection connection, String tableName) throws SQLException {
+		try (Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery("select * from " + tableName)) {
+			ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
+			System.out.println();
+			for (int x = 1; x <= resultSetMetaData.getColumnCount(); x++)
+				System.out.print(resultSetMetaData.getColumnName(x) + " | ");
+			while (resultSet.next()) {
+				System.out.println();
+				for (int x = 1; x <= resultSetMetaData.getColumnCount(); x++)
+					System.out.print(resultSet.getString(x) + " | ");
+			}
+		}
+	}
 }

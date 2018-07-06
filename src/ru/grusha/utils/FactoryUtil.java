@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
-import ru.grusha.service.DbService;
+import ru.grusha.service.DataBaseService;
 import ru.grusha.staff.Person;
 import ru.grusha.wrappers.Departments;
 import ru.grusha.wrappers.Organizations;
@@ -78,7 +78,7 @@ public class FactoryUtil {
 	 * Метод, осуществляющий сохранение оргштатных единиц в базе данных
 	 */
 	public static void saveStaffInDB() {
-		DbService dbService = new DbService();
+		DataBaseService dbService = new DataBaseService();
 		Connection connection = dbService.getConnection();
 		try {
 			dbService.createDB();
@@ -90,6 +90,15 @@ public class FactoryUtil {
 			dbService.insertPeople(FactoryUtil.loadedPeople, connection);
 			dbService.insertDepartments(FactoryUtil.loadedDepartments,connection);
 			dbService.insertOrganizations(FactoryUtil.loadedOrganizations,connection);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			dbService.printTable(connection, "PERSON");
+			dbService.printTable(connection, "ORGANIZATION");
+			dbService.printTable(connection, "DEPARTMENT");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
