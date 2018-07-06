@@ -1,8 +1,8 @@
-package ru.grusha.model;
+package ru.grusha.model.documents;
 
 import java.util.Date;
 
-import ru.grusha.staff.Person;
+import ru.grusha.model.staff.Person;
 import ru.grusha.utils.FormatUtil;
 
 public class Incoming extends Document{
@@ -47,7 +47,7 @@ public class Incoming extends Document{
 	@Override
 	public String toString() {
 		return "Входящий документ №" + getRegistrationNumber()
-			+", ID: " + getID() 
+			+", ID: " + getId() 
 			+", Название документа: " + getName() 			
 			+", Дата регистрации: " + getRegistrationDate() 			
 			+", Автор: " + getAuthor().getFullName() 			

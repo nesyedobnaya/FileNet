@@ -1,4 +1,4 @@
-package ru.grusha.staff;
+package ru.grusha.model.staff;
 
 public class Person extends Staff implements Comparable<Person>{
 	
@@ -40,7 +40,7 @@ public class Person extends Staff implements Comparable<Person>{
 	}
 	
 	public String toString() {
-		String str = getLastName()+" "
+		String str = "ID: "+ getId()+" "+getLastName()+" "
 				+ getFirstName()+" "
 				+ getPatronymic()
 				+" Должность: "+getPosition();	        

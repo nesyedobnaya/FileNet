@@ -2,7 +2,7 @@ package ru.grusha.interfaces;
 
 public interface Storable {
 	
-	int getID();
+	int getId();
 	
 	void setTableName();
 }

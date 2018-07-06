@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeSet;
 
-import ru.grusha.model.Document;
-import ru.grusha.staff.Person;
+import ru.grusha.model.documents.Document;
+import ru.grusha.model.staff.Person;
 
 public class ReportUtil {
 

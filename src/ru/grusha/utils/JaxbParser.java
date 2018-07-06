@@ -19,7 +19,7 @@ public class JaxbParser {
  		try {
  			JAXBContext jaxbContext = JAXBContext.newInstance(classOfObject);		
 			Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller(); 	     
-			Object obj = (Object) jaxbUnmarshaller.unmarshal(file); 	    
+			Object obj = jaxbUnmarshaller.unmarshal(file); 	    
 			return obj; 
 		} catch (JAXBException e) {			
 			e.printStackTrace();

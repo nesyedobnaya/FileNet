@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
-import ru.grusha.staff.Person;
+import ru.grusha.model.staff.Person;
 import ru.grusha.wrappers.Departments;
 import ru.grusha.wrappers.Organizations;
 import ru.grusha.wrappers.People;
@@ -61,15 +61,14 @@ public class FactoryUtil {
 	 */
 	public static void loadStaff() {
 		
-		File filePeople = new File("D://XML/People2.xml");
-		File fileOrganizations = new File("D://XML/Organizations2.xml");	 	    
-		File fileDepartments = new File("D://XML/Departments2.xml");
+		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+		File filePeople = new File(classLoader.getResource("People2.xml").getFile());
+		File fileOrganizations = new File(classLoader.getResource("Organizations2.xml").getFile()); 	    
+		File fileDepartments = new File(classLoader.getResource("Departments2.xml").getFile());
 		
 		//загрузка из файлов	    
 		loadedPeople=(People)JaxbParser.unMarshal(filePeople, People.class);				
-			
-		loadedDepartments=(Departments)JaxbParser.unMarshal(fileDepartments, Departments.class);	        
-			
-		loadedOrganizations=(Organizations)JaxbParser.unMarshal(fileOrganizations, Organizations.class);       
+		loadedDepartments=(Departments)JaxbParser.unMarshal(fileDepartments, Departments.class);	 			
+		loadedOrganizations=(Organizations)JaxbParser.unMarshal(fileOrganizations, Organizations.class); 
 	}
 }

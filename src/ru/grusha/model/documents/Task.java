@@ -1,8 +1,8 @@
-package ru.grusha.model;
+package ru.grusha.model.documents;
 
 import java.util.Date;
 
-import ru.grusha.staff.Person;
+import ru.grusha.model.staff.Person;
 import ru.grusha.utils.FormatUtil;
 
 public class Task extends Document {
@@ -56,7 +56,7 @@ public class Task extends Document {
 	@Override
 	public String toString() {
 		return "Поручение № " + getRegistrationNumber()
-			+ ", ID:  " + getID() 
+			+ ", ID:  " + getId() 
 			+ ", Название документа: " + getName() 
 			+ " Дата регистрации: " + FormatUtil.formatDate(getRegistrationDate())
 			+ ", Автор: " + getAuthor().getFullName() 
