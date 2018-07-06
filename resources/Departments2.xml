@@ -11,7 +11,7 @@
 		<fullName>Отдел стратегического развития предприятия</fullName>
 		<shortName>Отдел развития</shortName>
 		<telephone>8-919-619-01-86</telephone>
-		<ID>1000</ID>
+		<id>1000</id>
 	</department>
 	<department>
 		<chief>
@@ -24,7 +24,7 @@
 		<fullName>Бухгалтерия</fullName>
 		<shortName>Бухгалтерия</shortName>
 		<telephone>8-989-169-36-56</telephone>
-		<ID>1001</ID>
+		<id>1001</id>
 	</department>
 	<department>
 		<chief>
@@ -37,6 +37,6 @@
 		<fullName>Отдел труда и заработной платы</fullName>
 		<shortName>Отдел труда и ЗП</shortName>
 		<telephone>8-785-956-65-53</telephone>
-		<ID>1002</ID>
+		<id>1002</id>
 	</department>
 </departments>
