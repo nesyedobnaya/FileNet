@@ -22,7 +22,8 @@ public class DataBaseService {
 
 	public static final String DRIVER = "org.apache.derby.jdbc.EmbeddedDriver";
 	public static final String JDBC_URL = "jdbc:derby:appDB;create=true";
-
+	public Connection connection;
+	
 	/**
 	 * Метод, создающий БД и таблицы
 	 * @throws ClassNotFoundException
@@ -30,7 +31,7 @@ public class DataBaseService {
 	 */
 	public void createDB() throws ClassNotFoundException, SQLException {
 		Class.forName(DRIVER);
-		Connection connection = getConnection();
+		connection = getConnection();
 		
 		// удаление таблиц
 		deleteTableIfExists(connection, "PERSON");

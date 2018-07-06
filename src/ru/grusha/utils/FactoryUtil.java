@@ -79,7 +79,7 @@ public class FactoryUtil {
 	 */
 	public static void saveStaffInDB() {
 		DataBaseService dbService = new DataBaseService();
-		Connection connection = dbService.getConnection();
+		Connection connection = dbService.connection;
 		try {
 			dbService.createDB();
 		} catch (ClassNotFoundException | SQLException e) {
