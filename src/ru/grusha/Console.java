@@ -4,7 +4,6 @@ import java.util.TreeSet;
 
 import ru.grusha.exeption.DocumentExistsExeption;
 import ru.grusha.factory.Generator;
-import ru.grusha.model.Document;
 import ru.grusha.staff.Person;
 import ru.grusha.storage.DocumentStorage;
 import ru.grusha.utils.DocumentType;
@@ -25,7 +24,7 @@ public class Console {
 		
 		for (DocumentType type : DocumentType.values()) { 
 			try {
-				Document newDocument=generator.createDocument(type);
+				generator.createDocument(type);
 			}catch(DocumentExistsExeption ex){
 				System.out.println(ex.getMessage());	
 			}
