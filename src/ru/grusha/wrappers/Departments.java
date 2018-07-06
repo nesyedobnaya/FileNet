@@ -7,7 +7,6 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import ru.grusha.staff.Department;
-import ru.grusha.staff.Person;
 
 /**
  * 

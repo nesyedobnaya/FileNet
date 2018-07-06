@@ -12,7 +12,6 @@ import ru.grusha.model.Document;
 import ru.grusha.model.Incoming;
 import ru.grusha.model.Outgoing;
 import ru.grusha.model.Task;
-import ru.grusha.staff.Person;
 
 /**
  * 
