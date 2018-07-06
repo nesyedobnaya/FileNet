@@ -7,8 +7,9 @@ import java.util.Date;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
+
 import ru.grusha.service.DataBaseService;
-import ru.grusha.staff.Person;
+import ru.grusha.model.staff.Person;
 import ru.grusha.wrappers.Departments;
 import ru.grusha.wrappers.Organizations;
 import ru.grusha.wrappers.People;
@@ -64,9 +65,10 @@ public class FactoryUtil {
 	 */
 	public static void loadStaff() {
 		
-		File filePeople = new File("D://XML/People2.xml");
-		File fileOrganizations = new File("D://XML/Organizations2.xml");	 	    
-		File fileDepartments = new File("D://XML/Departments2.xml");
+		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+		File filePeople = new File(classLoader.getResource("People2.xml").getFile());
+		File fileOrganizations = new File(classLoader.getResource("Organizations2.xml").getFile()); 	    
+		File fileDepartments = new File(classLoader.getResource("Departments2.xml").getFile());
 		
 		//загрузка из файлов	    
 		loadedPeople=(People)JaxbParser.unMarshal(filePeople, People.class);			
@@ -79,7 +81,7 @@ public class FactoryUtil {
 	 */
 	public static void saveStaffInDB() {
 		DataBaseService dbService = new DataBaseService();
-		Connection connection = dbService.connection;
+		Connection connection = dbService.getConnection();
 		try {
 			dbService.createDB();
 		} catch (ClassNotFoundException | SQLException e) {
@@ -90,6 +92,9 @@ public class FactoryUtil {
 			dbService.insertPeople(FactoryUtil.loadedPeople, connection);
 			dbService.insertDepartments(FactoryUtil.loadedDepartments,connection);
 			dbService.insertOrganizations(FactoryUtil.loadedOrganizations,connection);
+			Departments d = new Departments();
+			dbService.getDepartmentsFromTable(connection, d);
+			System.out.println(d.getListOfDepartments());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

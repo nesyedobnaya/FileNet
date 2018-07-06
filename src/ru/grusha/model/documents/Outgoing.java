@@ -1,11 +1,8 @@
-package ru.grusha.model;
+package ru.grusha.model.documents;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
-import ru.grusha.staff.Person;
+import ru.grusha.model.staff.Person;
 import ru.grusha.utils.FormatUtil;
 
-@XmlRootElement
 public class Outgoing extends Document {
 	
     private Person addressee;//адресат
@@ -31,7 +28,7 @@ public class Outgoing extends Document {
     @Override
 	public String toString() {
     	return "Исходящий документ №" + getRegistrationNumber()
-    		+ ", ID: " + getID() 
+    		+ ", ID: " + getId() 
     		+ ", Название документа: " + getName() 
     		+ ", Дата регистрации: " + FormatUtil.formatDate(getRegistrationDate()) 
     		+ ", Автор: " + getAuthor().getFullName() 

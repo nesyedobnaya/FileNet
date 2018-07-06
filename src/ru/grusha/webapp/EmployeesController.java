@@ -8,8 +8,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import ru.grusha.model.Document;
-import ru.grusha.staff.Person;
+import ru.grusha.model.documents.Document;
+import ru.grusha.model.staff.Person;
 import ru.grusha.storage.DocumentStorage;
 import ru.grusha.utils.FactoryUtil;
 import ru.grusha.utils.JaxbParser;
@@ -30,14 +30,14 @@ public class EmployeesController {
 	@Path("/{id}")
 	@GET
 	@Produces(MediaType.TEXT_XML)
-	public String documentsOfAuthorsToXML(@PathParam("id") int ID){
+	public String documentsOfAuthorsToXML(@PathParam("id") int id){
 		
 		Documents docs = new Documents();
 		
 		String ReportXML=null;
 		TreeSet<Person> setOfAuthors = ReportUtil.authorsToSet(DocumentStorage.data);
 		for (Person authorFromSet: setOfAuthors) {
-			if (authorFromSet.getID()==(ID)){
+			if (authorFromSet.getId()==(id)){
 				for (Document documentFromStorage: DocumentStorage.data) {
 					if (authorFromSet.equals(documentFromStorage.getAuthor())) {
 						docs.getDocuments().add(documentFromStorage);

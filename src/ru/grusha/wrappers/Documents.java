@@ -8,10 +8,10 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlRootElement;
 
-import ru.grusha.model.Document;
-import ru.grusha.model.Incoming;
-import ru.grusha.model.Outgoing;
-import ru.grusha.model.Task;
+import ru.grusha.model.documents.Document;
+import ru.grusha.model.documents.Incoming;
+import ru.grusha.model.documents.Outgoing;
+import ru.grusha.model.documents.Task;
 
 /**
  * 

@@ -4,7 +4,7 @@ import java.util.TreeSet;
 
 import ru.grusha.exeption.DocumentExistsExeption;
 import ru.grusha.factory.Generator;
-import ru.grusha.staff.Person;
+import ru.grusha.model.staff.Person;
 import ru.grusha.storage.DocumentStorage;
 import ru.grusha.utils.DocumentType;
 import ru.grusha.utils.FactoryUtil;
@@ -37,5 +37,3 @@ public class Console {
 		}
 	}
 }
-	
-

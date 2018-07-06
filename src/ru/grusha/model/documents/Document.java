@@ -1,17 +1,14 @@
-package ru.grusha.model;
+package ru.grusha.model.documents;
 
 import java.util.Date;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
 import ru.grusha.interfaces.Storable;
-import ru.grusha.staff.Person;
+import ru.grusha.model.staff.Person;
 import ru.grusha.utils.FormatUtil;
 
-@XmlRootElement
 public abstract class Document implements Comparable<Document>, Storable{
 	 
-	private int ID;//идентификатор документа
+	private int id;//идентификатор документа
 	private String name;//название документа	  
 	private String text;//текст документа	     
 	private String registrationNumber;//регистрационный номер	     
@@ -19,12 +16,12 @@ public abstract class Document implements Comparable<Document>, Storable{
 	private Person author;//автор документа	
 	
 				
-	public int getID() {
-		return ID;
+	public int getId() {
+		return id;
 	}
 
-	public void setID(int ID) { 
-		this.ID = ID;
+	public void setId(int id) { 
+		this.id = id;
 	}
 
 	public String getName() {

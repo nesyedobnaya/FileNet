@@ -1,7 +1,7 @@
 package ru.grusha.factory;
 
 import ru.grusha.exeption.DocumentExistsExeption;
-import ru.grusha.model.Document;
+import ru.grusha.model.documents.Document;
 import ru.grusha.storage.DocumentStorage;
 import ru.grusha.utils.DocumentType;
 import ru.grusha.utils.FactoryUtil;

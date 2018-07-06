@@ -1,7 +1,7 @@
 package ru.grusha.factory;
 
-import ru.grusha.model.Document;
-import ru.grusha.model.Task;
+import ru.grusha.model.documents.Document;
+import ru.grusha.model.documents.Task;
 import ru.grusha.utils.FactoryUtil;
 
 /**
@@ -17,7 +17,7 @@ public class TaskFactory extends Factory{
 	@Override
 	public Document getDocument() {
 		Task task = new Task();
-		task.setID((FactoryUtil.createRandomInteger(4)));
+		task.setId((FactoryUtil.createRandomInteger(4)));
 		task.setAuthor(FactoryUtil.randomPerson());
 		task.setName("Название документа");
 		task.setText((FactoryUtil.createRandomInteger(10))+"");

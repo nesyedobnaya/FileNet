@@ -11,9 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 
-import ru.grusha.staff.Department;
-import ru.grusha.staff.Organization;
-import ru.grusha.staff.Person;
+import ru.grusha.model.staff.Department;
+import ru.grusha.model.staff.Organization;
+import ru.grusha.model.staff.Person;
 import ru.grusha.wrappers.Departments;
 import ru.grusha.wrappers.Organizations;
 import ru.grusha.wrappers.People;
@@ -43,9 +43,9 @@ public class DataBaseService {
 			connection.createStatement().execute(
 					"Create TABLE Person (id INT primary key, last_name varchar(20), first_name varchar(20), patronymic varchar(20), position varchar(30))");
 			connection.createStatement().execute(
-					"Create TABLE Department (id INT primary key, full_name varchar(50), short_name varchar(20), chief varchar(50), telephone varchar(20))");
+					"Create TABLE Department (id INT primary key, full_name varchar(50), short_name varchar(20), chief INT, telephone varchar(20))");
 			connection.createStatement().execute(
-					"Create TABLE ORGANIZATION (id INT primary key, full_name long varchar, short_name varchar(20), chief varchar(50), telephone varchar(20))");
+					"Create TABLE ORGANIZATION (id INT primary key, full_name long varchar, short_name varchar(20), chief INT, telephone varchar(20))");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			System.out.println("Таблицы не созданы" + e);
@@ -62,7 +62,7 @@ public class DataBaseService {
 		ListIterator<Person> listIter = people.getEmployees().listIterator();
 		while (listIter.hasNext()) {
 			Person nextPerson = listIter.next();
-			if (!idExists(nextPerson.getID(), "PERSON", connection)) {
+			if (!idExists(nextPerson.getId(), "PERSON", connection)) {
 				insertPerson(nextPerson, connection);
 			}
 		}
@@ -78,7 +78,7 @@ public class DataBaseService {
 		ListIterator<Department> listIter = departments.getListOfDepartments().listIterator();
 		while (listIter.hasNext()) {
 			Department nextDep = listIter.next();
-			if (!idExists(nextDep.getID(), "DEPARTMENT", connection)) {
+			if (!idExists(nextDep.getId(), "DEPARTMENT", connection)) {
 				insertDepartment(nextDep, connection);
 			}
 		}
@@ -94,7 +94,7 @@ public class DataBaseService {
 		ListIterator<Organization> listIter = organizations.getListOfOrganizations().listIterator();
 		while (listIter.hasNext()) {
 			Organization nextOrg = listIter.next();
-			if (!idExists(nextOrg.getID(), "ORGANIZATION", connection)) {
+			if (!idExists(nextOrg.getId(), "ORGANIZATION", connection)) {
 				insertOrganization(nextOrg, connection);
 			}
 		}
@@ -108,7 +108,7 @@ public class DataBaseService {
 	 */
 	private void insertPerson(Person person, Connection connection) throws SQLException {
 		PreparedStatement insertPersonQuery = connection.prepareStatement("insert into Person values (?,?,?,?,?)");
-		insertPersonQuery.setInt(1, person.getID());
+		insertPersonQuery.setInt(1, person.getId());
 		insertPersonQuery.setString(2,person.getLastName());
 		insertPersonQuery.setString(3, person.getFirstName());
 		insertPersonQuery.setString(4, person.getPatronymic());
@@ -125,10 +125,10 @@ public class DataBaseService {
 	 */
 	public void insertDepartment(Department department, Connection connection) throws SQLException {
 		PreparedStatement insertDepartmentQuery = connection.prepareStatement("insert into Department values (?,?,?,?,?)");
-		insertDepartmentQuery.setInt(1, department.getID());
+		insertDepartmentQuery.setInt(1, department.getId());
 		insertDepartmentQuery.setString(2, department.getFullName());
 		insertDepartmentQuery.setString(3, department.getShortName());
-		insertDepartmentQuery.setString(4, department.getChief());
+		insertDepartmentQuery.setInt(4, department.getChief().getId());
 		insertDepartmentQuery.setString(5, department.getTelephone());
 		insertDepartmentQuery.execute();
 		insertDepartmentQuery.close();
@@ -143,10 +143,10 @@ public class DataBaseService {
 	public void insertOrganization(Organization organization, Connection connection) throws SQLException {
 		PreparedStatement insertOrganizationQuery = connection
 				.prepareStatement("insert into Organization values (?,?,?,?,?)");
-		insertOrganizationQuery.setInt(1, organization.getID());
+		insertOrganizationQuery.setInt(1, organization.getId());
 		insertOrganizationQuery.setString(2, organization.getFullName());
 		insertOrganizationQuery.setString(3, organization.getShortName());
-		insertOrganizationQuery.setString(4, organization.getChief());
+		insertOrganizationQuery.setInt(4, organization.getChief().getId());
 		insertOrganizationQuery.setString(5, organization.getTelephone());
 		insertOrganizationQuery.execute();
 		insertOrganizationQuery.close();
@@ -235,7 +235,7 @@ public class DataBaseService {
 			ResultSet resultSet = statement.executeQuery("select * from PERSON")) {
 			while (resultSet.next()) {
 				Person person = new Person();
-				person.setID(Integer.parseInt(resultSet.getString("id")));
+				person.setId(Integer.parseInt(resultSet.getString("id")));
 				person.setLastName(resultSet.getString("last_name"));
 				person.setFirstName(resultSet.getString("first_name"));
 				person.setPatronymic(resultSet.getString("patronymic"));
@@ -256,10 +256,10 @@ public class DataBaseService {
 			ResultSet resultSet = statement.executeQuery("select * from ORGANIZATION")) {
 			while (resultSet.next()) {
 				Organization organization = new Organization();
-				organization.setID(Integer.parseInt(resultSet.getString("id")));
+				organization.setId(Integer.parseInt(resultSet.getString("id")));
 				organization.setFullName(resultSet.getString("full_name"));
 				organization.setShortName(resultSet.getString("short_name"));
-				organization.setChief(resultSet.getString("chief"));
+				organization.setChief(getPersonFromTableById(connection, resultSet.getInt("chief")));
 				organization.setTelephone(resultSet.getString("telephone"));
                 organizations.getListOfOrganizations().add(organization);
 			}
@@ -277,13 +277,29 @@ public class DataBaseService {
 			ResultSet resultSet = statement.executeQuery("select * from DEPARTMENT")) {
 			while (resultSet.next()) {
 				Department department = new Department();
-				department.setID(Integer.parseInt(resultSet.getString("id")));
+				department.setId(Integer.parseInt(resultSet.getString("id")));
 				department.setFullName(resultSet.getString("full_name"));
 				department.setShortName(resultSet.getString("short_name"));
-				department.setChief(resultSet.getString("chief"));
+				department.setChief(getPersonFromTableById(connection, resultSet.getInt("chief")));
 				department.setTelephone(resultSet.getString("telephone"));
 				departments.getListOfDepartments().add(department);
 			}
 		}
 	}
+	
+	public Person getPersonFromTableById(Connection connection, int id) throws SQLException {
+		Person person = new Person();
+		try (Statement statement = connection.createStatement();
+				ResultSet resultSet = statement.executeQuery("select * from PERSON where id = " + id)) {
+			while (resultSet.next()) {
+			person.setId(Integer.parseInt(resultSet.getString("id")));
+			person.setLastName(resultSet.getString("last_name"));
+			person.setFirstName(resultSet.getString("first_name"));
+			person.setPatronymic(resultSet.getString("patronymic"));
+			person.setPosition(resultSet.getString("position"));
+			}
+		}
+		return person;
+	}
+	
 }
