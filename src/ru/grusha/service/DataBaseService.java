@@ -223,6 +223,12 @@ public class DataBaseService {
 		}
 	}
 	
+	/**
+	 * Метод, извлекающий объекты класса Персона из таблицы
+	 * @param connection соединение с БД
+	 * @param people Класс, содержащий набор объектов типа Персона
+	 * @throws SQLException
+	 */
 	public void getPeopleFromTable(Connection connection, People people) throws SQLException {
 		try (Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery("select * from PERSON")) {
@@ -238,6 +244,12 @@ public class DataBaseService {
 		}
 	}
 	
+	/**
+	 * Метод, извлекающий объекты класса Организация из таблицы
+	 * @param connection соединение с БД
+	 * @param people Класс, содержащий набор объектов типа Организация
+	 * @throws SQLException
+	 */
 	public void getOrganizationsFromTable(Connection connection, Organizations organizations) throws SQLException {
 		try (Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery("select * from ORGANIZATION")) {
@@ -253,6 +265,12 @@ public class DataBaseService {
 		}
 	}
 	
+	/**
+	 * Метод, извлекающий объекты класса Отдел из таблицы
+	 * @param connection соединение с БД
+	 * @param people Класс, содержащий набор объектов типа Отдел
+	 * @throws SQLException
+	 */
 	public void getDepartmentsFromTable(Connection connection, Departments departments) throws SQLException {
 		try (Statement statement = connection.createStatement();
 			ResultSet resultSet = statement.executeQuery("select * from DEPARTMENT")) {
