@@ -1,5 +1,6 @@
 package ru.grusha.exeption;
 
+@SuppressWarnings("serial")
 public class DocumentExistsExeption extends Exception{     	
 	
 	/**

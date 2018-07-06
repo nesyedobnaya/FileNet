@@ -1,7 +1,7 @@
 package ru.grusha.factory;
 
-import ru.grusha.model.Document;
-import ru.grusha.model.Incoming;
+import ru.grusha.model.documents.Document;
+import ru.grusha.model.documents.Incoming;
 import ru.grusha.utils.FactoryUtil;
 
 /**
@@ -17,7 +17,7 @@ public class IncomingFactory extends Factory{
 	@Override
 	public Document getDocument() {
 		Incoming incoming = new Incoming();		
-		incoming.setID((FactoryUtil.createRandomInteger(4)));
+		incoming.setId((FactoryUtil.createRandomInteger(4)));
 		incoming.setAuthor(FactoryUtil.randomPerson());
 		incoming.setName("Название документа");
 		incoming.setText((FactoryUtil.createRandomInteger(10))+"");

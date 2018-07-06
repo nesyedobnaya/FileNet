@@ -1,13 +1,10 @@
-package ru.grusha.model;
+package ru.grusha.model.documents;
 
 import java.util.Date;
 
-import javax.xml.bind.annotation.XmlRootElement;
-
-import ru.grusha.staff.Person;
+import ru.grusha.model.staff.Person;
 import ru.grusha.utils.FormatUtil;
 
-@XmlRootElement
 public class Task extends Document {
 	
 	private Date deliveryDate;//дата выдачи поручения
@@ -59,7 +56,7 @@ public class Task extends Document {
 	@Override
 	public String toString() {
 		return "Поручение № " + getRegistrationNumber()
-			+ ", ID:  " + getID() 
+			+ ", ID:  " + getId() 
 			+ ", Название документа: " + getName() 
 			+ " Дата регистрации: " + FormatUtil.formatDate(getRegistrationDate())
 			+ ", Автор: " + getAuthor().getFullName() 

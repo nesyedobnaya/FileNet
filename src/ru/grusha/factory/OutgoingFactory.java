@@ -2,8 +2,8 @@ package ru.grusha.factory;
 
 import java.util.Random;
 
-import ru.grusha.model.Document;
-import ru.grusha.model.Outgoing;
+import ru.grusha.model.documents.Document;
+import ru.grusha.model.documents.Outgoing;
 import ru.grusha.utils.FactoryUtil;
 
 /**
@@ -19,7 +19,7 @@ public class OutgoingFactory extends Factory{
 	@Override
 	public Document getDocument() {
 		Outgoing outgoing = new Outgoing();
-		outgoing.setID((FactoryUtil.createRandomInteger(4)));
+		outgoing.setId((FactoryUtil.createRandomInteger(4)));
 		outgoing.setAuthor(FactoryUtil.randomPerson());
 		outgoing.setName("Название документа");
 		outgoing.setText((FactoryUtil.createRandomInteger(10))+"");

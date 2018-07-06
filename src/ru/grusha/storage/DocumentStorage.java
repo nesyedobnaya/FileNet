@@ -3,7 +3,7 @@ package ru.grusha.storage;
 import java.util.TreeSet;
 
 import ru.grusha.exeption.DocumentExistsExeption;
-import ru.grusha.model.Document;
+import ru.grusha.model.documents.Document;
 
 public class DocumentStorage {
  

@@ -1,6 +1,6 @@
 package ru.grusha.factory;
 
-import ru.grusha.model.Document;
+import ru.grusha.model.documents.Document;
 
 /**
  * 

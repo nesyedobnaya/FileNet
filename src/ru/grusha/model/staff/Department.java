@@ -1,11 +1,11 @@
-package ru.grusha.staff;
+package ru.grusha.model.staff;
 
-public class Organization extends Staff{
+public class Department extends Staff{
 	
 	private String fullName;//полное название
 	private String shortName;//краткое название
-	private String chief;//руководитель
-	private String telephone;//контактные телефоны	
+	private Person chief;//руководитель
+	private String telephone;//контактные телефоны
 
 	public void setFullName(String name) {
 		this.fullName = name;
@@ -23,11 +23,11 @@ public class Organization extends Staff{
 		return shortName;
 	}
 
-	public void setChief(String name) {
-		this.chief = name;
+	public void setChief(Person person) {
+		this.chief = person;
 	}
 	
-	public String getChief() {
+	public Person getChief() {
 		return chief;
 	}
 
@@ -40,7 +40,7 @@ public class Organization extends Staff{
 	}
 	
 	public String toString() {
-		String str = "Полное название: "+getFullName()
+		String str = "ID: "+ getId()+" Полное название: "+getFullName()
 				+", Краткое название: "+getShortName()
 				+", Руководитель: "+getChief()
 				+", Телефон: "+getTelephone()+" ";	        
