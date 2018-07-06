@@ -21,7 +21,7 @@ import ru.grusha.wrappers.Documents;
 public class EmployeesController {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public String peopleToJson(){
+	public String employeesToJson(){
 		JsonFileWriter jsonWriter = new JsonFileWriter();
 		String peopleJson = jsonWriter.objectToJsonString(FactoryUtil.loadedPeople);
 		return peopleJson;
@@ -30,7 +30,7 @@ public class EmployeesController {
 	@Path("/{id}")
 	@GET
 	@Produces(MediaType.TEXT_XML)
-	public String documentsOfAuthorToXML(@PathParam("id") int ID){
+	public String documentsOfAuthorsToXML(@PathParam("id") int ID){
 		
 		Documents docs = new Documents();
 		
