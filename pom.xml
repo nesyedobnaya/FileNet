@@ -20,7 +20,7 @@
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.5</version>
 				<configuration>
-					<webXml>WebContent\WEB-INF\web.xml</webXml>
+					<webXml>src\main\webapp\WebContent\WEB-INF\web.xml</webXml>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -57,6 +57,25 @@
 			<groupId>org.apache.derby</groupId>
 			<artifactId>derby</artifactId>
 			<version>10.14.2.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.1.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.sun.jersey/jersey-servlet -->
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-servlet</artifactId>
+			<version>1.19</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/jstl/jstl -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
 		</dependency>
 	</dependencies>
 	<packaging>war</packaging>
