@@ -22,7 +22,6 @@ public class DataBaseService {
 
 	public static final String DRIVER = "org.apache.derby.jdbc.EmbeddedDriver";
 	public static final String JDBC_URL = "jdbc:derby:appDB;create=true";
-	public Connection connection;
 	
 	/**
 	 * Метод, создающий БД и таблицы
@@ -31,7 +30,7 @@ public class DataBaseService {
 	 */
 	public void createDB() throws ClassNotFoundException, SQLException {
 		Class.forName(DRIVER);
-		connection = getConnection();
+		Connection connection = getConnection();
 		
 		// удаление таблиц
 		deleteTableIfExists(connection, "PERSON");
@@ -50,6 +49,7 @@ public class DataBaseService {
 			// TODO Auto-generated catch block
 			System.out.println("Таблицы не созданы" + e);
 		}
+		connection.close();
 	}
 
 	/**
@@ -160,7 +160,7 @@ public class DataBaseService {
 		try {
 			return DriverManager.getConnection(JDBC_URL);
 		} catch (SQLException e) {
-			System.out.println("Не удалось установить связь с базой данных");
+			System.out.println("Не удалось установить связь с базой данных "+e);
 		}
 		return null;
 	}

@@ -20,16 +20,16 @@ public class JsonFileWriter {
 	 */
 	public void reportToAFile(Person author, List<Document> documentsOfAuthor) {
 
-		String pathForFile=null;
+		String pathToAFile=null;
 		try {
-			pathForFile = (JsonFileWriter.class.getProtectionDomain().getCodeSource().getLocation().toURI()
+			pathToAFile = (JsonFileWriter.class.getProtectionDomain().getCodeSource().getLocation().toURI()
 					.getPath() + author.getLastName() + ".json");
 		} catch (URISyntaxException e) {
 			System.out.println("Путь не сгенерирован " + e);
 		}
 
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		try (FileWriter writer = new FileWriter(pathForFile)) {
+		try (FileWriter writer = new FileWriter(pathToAFile)) {
 			String json = gson.toJson(documentsOfAuthor);
 			writer.write(json);
 		} catch (IOException e1) {

@@ -1,5 +1,7 @@
 package ru.grusha.webapp;
 
+import java.sql.SQLException;
+
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
@@ -11,7 +13,7 @@ import ru.grusha.utils.FactoryUtil;
 @ApplicationPath("/ecm")
 public class MainApplication extends Application{
 
-	public MainApplication(){
+	public MainApplication() throws SQLException{
 		FactoryUtil.loadStaff();
 		FactoryUtil.saveStaffInDB();
 		

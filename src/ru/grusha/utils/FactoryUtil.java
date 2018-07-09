@@ -78,10 +78,11 @@ public class FactoryUtil {
 	
 	/**
 	 * Метод, осуществляющий сохранение оргштатных единиц в базе данных
+	 * @throws SQLException 
 	 */
-	public static void saveStaffInDB() {
+	public static void saveStaffInDB() throws SQLException {
 		DataBaseService dbService = new DataBaseService();
-		Connection connection = dbService.getConnection();
+		try (Connection connection = dbService.getConnection();){
 		try {
 			dbService.createDB();
 		} catch (ClassNotFoundException | SQLException e) {
@@ -92,12 +93,10 @@ public class FactoryUtil {
 			dbService.insertPeople(FactoryUtil.loadedPeople, connection);
 			dbService.insertDepartments(FactoryUtil.loadedDepartments,connection);
 			dbService.insertOrganizations(FactoryUtil.loadedOrganizations,connection);
-			Departments d = new Departments();
-			dbService.getDepartmentsFromTable(connection, d);
-			System.out.println(d.getListOfDepartments());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}
 		}
 	}
 }
