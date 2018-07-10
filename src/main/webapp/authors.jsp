@@ -15,16 +15,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; UTF-8">
 <title>Авторы документов</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<table>
+	<table id="t01">
 		<tr>
 			<th>ID</th>
 			<th>Фамилия</th>
 			<th>Имя</th>
 			<th>Отчество</th>
 			<th>Должность</th>
+			<tr><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td></tr>
+			<tr><td>b</td><td>b</td><td>b</td><td>b</td><td>b</td></tr>
 			<%
 				Generator generator = new Generator();
 				FactoryUtil.loadStaff();
