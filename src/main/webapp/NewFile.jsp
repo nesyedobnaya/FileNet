@@ -18,7 +18,8 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<table id="t01">
+to hell with it all
+<table id="t01">
 		<tr>
 			<th>ID</th>
 			<th>Фамилия</th>
@@ -27,28 +28,6 @@
 			<th>Должность</th>
 			<tr><td>a</td><td>a</td><td>a</td><td>a</td><td>a</td></tr>
 			<tr><td>b</td><td>b</td><td>b</td><td>b</td><td>b</td></tr>
-			<%
-				Generator generator = new Generator();
-				FactoryUtil.loadStaff();
-
-				for (DocumentType type : DocumentType.values()) {
-					try {
-						generator.createDocument(type);
-					} catch (DocumentExistsExeption ex) {
-						System.out.println(ex.getMessage());
-					}
-				}
-
-				TreeSet<Person> setOfAuthors = ReportUtil.authorsToSet(DocumentStorage.data);
-				for (Person authorFromSet : setOfAuthors) {
-					out.write("<tr>");
-					out.write("<td>" + authorFromSet.getId() + "</td><td>" + authorFromSet.getLastName() + "</td><td>"
-							+ authorFromSet.getFirstName() + "</td><td>" + authorFromSet.getPatronymic() + "</td><td>"
-							+ authorFromSet.getPosition() + "</td>");
-					out.write("</tr>");
-				}
-			%>
-		
-	</table>
+			</table>
 </body>
 </html>
