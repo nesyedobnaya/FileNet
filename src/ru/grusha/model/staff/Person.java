@@ -40,10 +40,10 @@ public class Person extends Staff implements Comparable<Person>{
 	}
 	
 	public String toString() {
-		String str = "ID: "+ getId()+" "+getLastName()+" "
+		String str = "ID: "+ getId()+", "+getLastName()+" "
 				+ getFirstName()+" "
 				+ getPatronymic()
-				+" Должность: "+getPosition();	        
+				+", Должность: "+getPosition();	        
 		return str;		  	
 	}
 	
