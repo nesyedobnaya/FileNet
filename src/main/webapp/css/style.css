@@ -8,13 +8,18 @@ table, th, td {
     border-collapse: collapse;
 }
 
-table { 
-    background-color: #c0c0c0;
-}
-
 table tr:nth-child(odd) {
     background-color: #c0c0c0;
 }
 table tr:nth-child(even) {
-   background-color: #408080;
+   background-color: #dbeeee;
+}
+
+table tr:hover td {
+	background-color: white;
+	transition:0;
+}
+
+table th {
+	background-color: #808080;
 }

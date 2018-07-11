@@ -19,7 +19,7 @@
 </head>
 <body>
 to hell with it all
-<table id="t01">
+<table>
 		<tr>
 			<th>ID</th>
 			<th>Фамилия</th>

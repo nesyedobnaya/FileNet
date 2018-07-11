@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; UTF-8">
-<title>Авторы документов</title>
+<title>Документы</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -40,7 +40,7 @@
 				TreeSet<Person> setOfAuthors = ReportUtil.authorsToSet(DocumentStorage.data);
 				for (Person authorFromSet : setOfAuthors) {
 			%>
-			<tr onclick="location.href='documents.jsp'">
+			<tr onclick="location.href='link.com'">
 				<%
 					out.write("<td>" + authorFromSet.getId() + "</td><td>" + authorFromSet.getLastName() + "</td><td>"
 								+ authorFromSet.getFirstName() + "</td><td>" + authorFromSet.getPatronymic() + "</td><td>"
