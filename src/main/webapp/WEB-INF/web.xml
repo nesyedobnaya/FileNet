@@ -23,4 +23,12 @@
 		<servlet-name>documents</servlet-name>
 		<url-pattern>/documents</url-pattern>
 	</servlet-mapping>
+	<servlet>
+		<servlet-name>documentContent</servlet-name>
+		<jsp-file>/documentContent.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>documentContent</servlet-name>
+		<url-pattern>/documentContent</url-pattern>
+	</servlet-mapping>
 </web-app>
