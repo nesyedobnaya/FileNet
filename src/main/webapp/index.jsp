@@ -20,16 +20,6 @@
 				for (DocumentType type : DocumentType.values()) {
 					try {
 						generator.createDocument(type);
-						generator.createDocument(type);
-						generator.createDocument(type);
-						generator.createDocument(type);
-						generator.createDocument(type);
-						generator.createDocument(type);
-						generator.createDocument(type);
-						generator.createDocument(type);
-						generator.createDocument(type);
-						generator.createDocument(type);
-						generator.createDocument(type);
 					} catch (DocumentExistsExeption ex) {
 						System.out.println(ex.getMessage());
 					}

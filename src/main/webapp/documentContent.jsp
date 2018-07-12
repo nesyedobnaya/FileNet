@@ -13,6 +13,14 @@
 <title>Документ</title>
 </head>
 <body>
-<% out.write(DocumentStorage.data.last().toString());%>
+<% 
+String chosenDocumentId = (String) request.getAttribute("chosenDocumentId");
+int documentId = Integer.parseInt(chosenDocumentId);
+for (Document documentFromStorage : DocumentStorage.data) {
+	if (documentFromStorage.getId()==documentId){
+		out.write(documentFromStorage.toString());
+	}
+}
+%>
 </body>
 </html>

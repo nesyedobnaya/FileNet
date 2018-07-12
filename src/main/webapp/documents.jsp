@@ -5,6 +5,7 @@
     ru.grusha.utils.ReportUtil,
     java.util.TreeSet,
     java.util.List,
+    java.util.ArrayList,
     ru.grusha.model.documents.Document,
 	ru.grusha.model.staff.Person"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -17,26 +18,32 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<%
-		/*
-		int id = Integer.valueOf(session.getAttribute("authorId").toString());
-		out.write(id);
-		out.write(session.getAttribute("authorId").toString());
-		*/
-	%>
+	<form method="post" action="GetDocumentById" id="myform">
+		<INPUT type="hidden" id="documentInputId" name="documentId" value="">
+	</form>
 	<div>
-		<table>
+		<table id="tableDocuments">
 			<tr>
 				<th>ID</th>
 				<th>Название</th>
 				<th>Дата регистрации</th>
 				<th>Регистрационный номер</th>
-			<%
-				Person author = ReportUtil.authorsToSet(DocumentStorage.data).first();
-				List<Document> documentsOfAuthor = ReportUtil.getDocumentsOfAuthor(DocumentStorage.data, author);
-				for (Document document : documentsOfAuthor) {
-			%>
-			<tr onclick="location.href='documentContent.jsp'">
+				<%
+					String chosenAuthorId = (String) request.getAttribute("chosenAuthorId");
+					//out.write(chosenAuthorId);
+					int authorId = Integer.parseInt(chosenAuthorId);
+					//out.write(authorId + "");
+					List<Document> documentsOfAuthor = new ArrayList<Document>();
+					for (Document documentFromStorage : DocumentStorage.data) {
+						if (authorId == documentFromStorage.getAuthor().getId()) {
+							documentsOfAuthor.add(documentFromStorage);
+							//out.write(documentFromStorage.toString());
+						}
+					}
+					for (Document document : documentsOfAuthor) {
+				%>
+			
+			<tr onclick="setParameter(this)">
 				<%
 					out.write("<td>" + document.getId() + "</td><td>" + document.getName() + "</td><td>"
 								+ FormatUtil.formatDate(document.getRegistrationDate()) + "</td><td>"
@@ -48,4 +55,13 @@
 		</table>
 	</div>
 </body>
+<script type="text/javascript">
+	function setParameter(x) {
+		var table = document.getElementById('tableDocuments');
+		document.getElementById('documentInputId').value = table.rows[x.rowIndex].cells[0].innerHTML;
+		//alert(document.getElementById('documentInputId').value);
+		var form = document.getElementById('myform');
+		form.submit();
+	}
+</script>
 </html>
