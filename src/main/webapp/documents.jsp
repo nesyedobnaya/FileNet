@@ -21,7 +21,6 @@
 	<form method="post" action="GetDocumentById" id="myform">
 		<INPUT type="hidden" id="documentInputId" name="documentId" value="">
 	</form>
-	<div>
 		<table id="tableDocuments">
 			<tr>
 				<th>ID</th>
@@ -53,7 +52,7 @@
 				%>
 			
 		</table>
-	</div>
+		<a href="author.jsp">Назад</a>
 </body>
 <script type="text/javascript">
 	function setParameter(x) {

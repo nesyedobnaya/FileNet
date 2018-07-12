@@ -14,17 +14,17 @@
 </head>
 <body>
 	<%
-				Generator generator = new Generator();
-				FactoryUtil.loadStaff();
+		Generator generator = new Generator();
+		FactoryUtil.loadStaff();
 
-				for (DocumentType type : DocumentType.values()) {
-					try {
-						generator.createDocument(type);
-					} catch (DocumentExistsExeption ex) {
-						System.out.println(ex.getMessage());
-					}
-				}
-				%>
-	<a href="author.jsp">Aвторы документов</a>
+		for (DocumentType type : DocumentType.values()) {
+			try {
+				generator.createDocument(type);
+			} catch (DocumentExistsExeption ex) {
+				System.out.println(ex.getMessage());
+			}
+		}
+	%>
+	<a href="author.jsp">Авторы документов</a>
 </body>
 </html>

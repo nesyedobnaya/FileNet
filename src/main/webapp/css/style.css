@@ -23,3 +23,11 @@ table tr:hover td {
 table th {
 	background-color: #808080;
 }
+
+div {
+	margin: auto;
+	background: #ccc;
+    padding: 5px; 
+    border: solid 1px black; 
+    float: left;
+}
