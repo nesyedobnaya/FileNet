@@ -25,7 +25,7 @@ public class GetDocumentById extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String chosenDocumentId = request.getParameter("documentId");
 		request.setAttribute("chosenDocumentId", chosenDocumentId);

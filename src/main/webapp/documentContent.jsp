@@ -16,8 +16,7 @@
 <body>
 	<%
 		String authorId = "";
-		String chosenDocumentId = (String) request.getAttribute("chosenDocumentId");
-		int documentId = Integer.parseInt(chosenDocumentId);
+		int documentId = Integer.parseInt((String) request.getAttribute("chosenDocumentId"));
 		for (Document documentFromStorage : DocumentStorage.data) {
 			if (documentFromStorage.getId() == documentId) {
 				out.write(documentFromStorage.toString());
@@ -26,7 +25,7 @@
 		}
 	%>
 	<br>
-	<form method="post" action="GetAuthorById" id="myform">
+	<form method="get" action="GetAuthorById" id="myform">
 		<INPUT type="hidden" id="authorInputId" name="authorId" value="">
 	</form>
 	<table><tr><th onclick='setParameter(this)'>Назад</th></tr></table>

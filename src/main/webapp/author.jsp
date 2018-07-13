@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<form method="post" action="GetAuthorById" id="myform">
+	<form method="get" action="GetAuthorById" id="myform">
 		<INPUT type="hidden" id="authorInputId" name="authorId" value="">
 	</form>
 	<table id="tableAuthors">

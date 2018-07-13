@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<form method="post" action="GetDocumentById" id="myform">
+	<form method="get" action="GetDocumentById" id="myform">
 		<INPUT type="hidden" id="documentInputId" name="documentId" value="">
 	</form>
 		<table id="tableDocuments">
@@ -28,9 +28,7 @@
 				<th>Дата регистрации</th>
 				<th>Регистрационный номер</th>
 				<%
-					String chosenAuthorId = (String) request.getAttribute("chosenAuthorId");
-					//out.write(chosenAuthorId);
-					int authorId = Integer.parseInt(chosenAuthorId);
+					int authorId = Integer.parseInt((String) request.getAttribute("chosenAuthorId"));
 					//out.write(authorId + "");
 					List<Document> documentsOfAuthor = new ArrayList<Document>();
 					for (Document documentFromStorage : DocumentStorage.data) {
