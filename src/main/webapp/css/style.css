@@ -16,12 +16,12 @@ table tr:nth-child(even) {
 }
 
 table tr:hover td {
-	background-color: white;
+	background-color: wshite;
 	transition:0;
 }
 
 table th {
-	background-color: #808080;
+	background-color: #8b8b8b;
 } 
 
 div#doc {
@@ -34,7 +34,7 @@ div#doc {
 } 
 
 div {
-	background: #ccc;
+	background: #8b8b8b;
     padding: 5px; 
     border: solid 1px black; 
     float: left;
@@ -42,11 +42,11 @@ div {
 }
 
 div#wrap {
-	background: #e5e5e5;
-    padding: 5px; 
-    border: solid 1px black; 
-    float: left;
-    margin-top:10px;  
+	background: #c0c0c0; 
 } 
+
+div.backButton {
+	font-weight: bold;
+}
 
 

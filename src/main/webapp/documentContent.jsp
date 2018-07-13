@@ -35,7 +35,7 @@
 		<form method="get" action="GetAuthorById" id="myform">
 			<INPUT type="hidden" id="authorInputId" name="authorId" value="">
 		</form>
-		<div onclick='setParameter(this)'>Назад</div>
+		<div class='backButton' onclick='setParameter(this)'>Назад</div>
 	</div>
 </body>
 <!-- Функция записывает id автора в поле ввода, отправляет форму на обработку -->

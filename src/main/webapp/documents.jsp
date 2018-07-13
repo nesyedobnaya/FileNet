@@ -52,7 +52,7 @@
 			%>
 		
 	</table>
-	<div onclick="location.href='author.jsp'">Назад</div>
+	<div class='backButton' onclick="location.href='author.jsp'">Назад</div>
 </body>
 <!-- Функция извлекает id документа из выбранной строки, записывает id в поле ввода, отправляет форму на обработку -->
 <script type="text/javascript">
