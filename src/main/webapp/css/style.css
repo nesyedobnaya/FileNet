@@ -22,7 +22,16 @@ table tr:hover td {
 
 table th {
 	background-color: #808080;
-}
+} 
+
+div#doc {
+	width: 300px;
+	background: #dbeeee;
+    padding: 10px; 
+    border: solid 2px black; 
+    float: left;
+    margin-top:10px; 
+} 
 
 div {
 	background: #ccc;
@@ -31,3 +40,13 @@ div {
     float: left;
     margin-top:10px; 
 }
+
+div#wrap {
+	background: #e5e5e5;
+    padding: 5px; 
+    border: solid 1px black; 
+    float: left;
+    margin-top:10px;  
+} 
+
+

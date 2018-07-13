@@ -14,31 +14,34 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<%--
+	<div id="wrap">
+		<div id="doc">
+			<%--
 		Данный фрагмент кода извлекает из массива, хрянящего документы, документ с полученным id и выводит поля документа,
 		записывает id автора для возврата
 	--%>
-	<%
-		String authorId = "";
-		int documentId = Integer.parseInt((String) request.getAttribute("chosenDocumentId"));
-		for (Document documentFromStorage : DocumentStorage.data) {
-			if (documentFromStorage.getId() == documentId) {
-				out.write(documentFromStorage.toString());
-				authorId = documentFromStorage.getAuthor().getId() + "";
-			}
-		}
-	%>
-	<br>
-	<!-- Форма, содержащая скрытое поле ввода для передачи id выбранного автора -->
-	<form method="get" action="GetAuthorById" id="myform">
-		<INPUT type="hidden" id="authorInputId" name="authorId" value="">
-	</form>
-	<div onclick='setParameter(this)'>Назад</div>
+			<%
+				String authorId = "";
+				int documentId = Integer.parseInt((String) request.getAttribute("chosenDocumentId"));
+				for (Document documentFromStorage : DocumentStorage.data) {
+					if (documentFromStorage.getId() == documentId) {
+						out.write(documentFromStorage.toString().replace(",", "<br>"));
+						authorId = documentFromStorage.getAuthor().getId() + "";
+					}
+				}
+			%>
+		</div>
+		<!-- Форма, содержащая скрытое поле ввода для передачи id выбранного автора -->
+		<form method="get" action="GetAuthorById" id="myform">
+			<INPUT type="hidden" id="authorInputId" name="authorId" value="">
+		</form>
+		<div onclick='setParameter(this)'>Назад</div>
+	</div>
 </body>
 <!-- Функция записывает id автора в поле ввода, отправляет форму на обработку -->
 <script type="text/javascript">
 	function setParameter(x) {
-		document.getElementById('authorInputId').value = <%=authorId%>;
+		document.getElementById('authorInputId').value =<%=authorId%>;
 		//alert(document.getElementById('authorInputId').value);
 		var form = document.getElementById('myform');
 		form.submit();
