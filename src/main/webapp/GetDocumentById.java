@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Servlet implementation class GetDocumentById
+ * Сервлет, получающий id документа и открывающий страницу с полями документа
  */
 @WebServlet("/GetDocumentById")
 public class GetDocumentById extends HttpServlet {
@@ -22,8 +23,10 @@ public class GetDocumentById extends HttpServlet {
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * Метод получает id документа
+	 * записывает id в атрибут
+	 * открывает страницу с полями документа
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

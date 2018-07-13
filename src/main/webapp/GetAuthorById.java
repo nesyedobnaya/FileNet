@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Servlet implementation class GetAuthorById
+ * Сервлет, получающий id автора и открывающий страницу с документами автора
  */
 @WebServlet("/GetAuthorById")
 public class GetAuthorById extends HttpServlet {
@@ -22,7 +23,10 @@ public class GetAuthorById extends HttpServlet {
     }
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * Метод получает id автора
+	 * записывает id в атрибут
+	 * открывает страницу с документами автора
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub

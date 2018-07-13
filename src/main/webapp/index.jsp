@@ -11,12 +11,16 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; UTF-8">
 <title>Index</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+	<%--
+	Страница открывается при запуске приложения. 
+	Во вставке java-кода генерируются документы.
+	--%>
 	<%
 		Generator generator = new Generator();
 		FactoryUtil.loadStaff();
-
 		for (DocumentType type : DocumentType.values()) {
 			try {
 				generator.createDocument(type);
@@ -25,6 +29,7 @@
 			}
 		}
 	%>
-	<a href="author.jsp">Авторы документов</a>
+	<!-- Переход на страницу со списком авторов документов -->
+	<div onclick="location.href='author.jsp'">Авторы документов</div>
 </body>
 </html>

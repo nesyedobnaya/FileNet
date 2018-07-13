@@ -25,9 +25,9 @@ table th {
 }
 
 div {
-	margin: auto;
 	background: #ccc;
     padding: 5px; 
     border: solid 1px black; 
     float: left;
+    margin-top:10px; 
 }

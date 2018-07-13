@@ -59,13 +59,13 @@ public class Task extends Document {
 			+ ", ID:  " + getId() 
 			+ ", Название документа: " + getName() 
 			+ " Дата регистрации: " + FormatUtil.formatDate(getRegistrationDate())
-			+ ", Автор: " + getAuthor().getFullName() 
+			+ ", Автор: " + getAuthor().toString()
 			+ ", Текст документа: "+ getText() 
 			+ ", Дата выдачи: " + FormatUtil.formatDate(getDeliveryDate())
-			+ ", Срок исполнения: " + getDueDate()
-			+ ", Ответственный исполнитель: " + getExecutor().getFullName()				
+			+ ", Срок исполнения: " + FormatUtil.formatDate(getDueDate())
+			+ ", Ответственный исполнитель: " + getExecutor().toString()				
 			+ ", Исполнено: " + getControleAttribute()
-			+ ", Контролер: " + getController().getFullName();
+			+ ", Контролер: " + getController().toString();
 	}
 
 	@Override

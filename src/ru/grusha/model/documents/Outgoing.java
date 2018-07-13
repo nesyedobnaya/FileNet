@@ -31,9 +31,9 @@ public class Outgoing extends Document {
     		+ ", ID: " + getId() 
     		+ ", Название документа: " + getName() 
     		+ ", Дата регистрации: " + FormatUtil.formatDate(getRegistrationDate()) 
-    		+ ", Автор: " + getAuthor().getFullName() 
+    		+ ", Автор: " + getAuthor().toString()
     		+ ", Текст документа: " + getText()
-    		+ ", Адресат: "+ getAddressee().getFullName()
+    		+ ", Адресат: "+ getAddressee().toString()
     		+ ", Способ доставки: "+ getDelivery();       
 	}
 

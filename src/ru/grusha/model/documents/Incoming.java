@@ -49,11 +49,11 @@ public class Incoming extends Document{
 		return "Входящий документ №" + getRegistrationNumber()
 			+", ID: " + getId() 
 			+", Название документа: " + getName() 			
-			+", Дата регистрации: " + getRegistrationDate() 			
-			+", Автор: " + getAuthor().getFullName() 			
+			+", Дата регистрации: " + FormatUtil.formatDate(getRegistrationDate())			
+			+", Автор: " + getAuthor().toString()			
 			+", Текст документа: "+getText()			
-			+", Отправитель: "+ getSender().getFullName()			
-			+", Адресат: " + getAddressee().getFullName()			
+			+", Отправитель: "+ getSender().toString()			
+			+", Адресат: " + getAddressee().toString()		
 			+", Исходящий номер: "+ getOutgoingNumber()			
 			+", Исходящая дата регистрации: " + FormatUtil.formatDate(getOutgoingRegistrationDate());    
 	}
