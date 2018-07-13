@@ -2,9 +2,9 @@
 	pageEncoding="UTF-8"%>
 
 <%@ page
-	import="ru.grusha.model.staff.Person,
-    ru.grusha.storage.DocumentStorage,  
-    ru.grusha.utils.ReportUtil,
+	import="main.java.ru.grusha.model.staff.Person,
+    main.java.ru.grusha.storage.DocumentStorage,  
+    main.java.ru.grusha.utils.ReportUtil,
     java.util.TreeSet"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
