@@ -22,18 +22,22 @@
 	--%>
 			<%
 				String authorId = "";
-			String id=(String) request.getParameter("id");
-				int documentId = Integer.parseInt((String) request.getParameter("id"));
-				for (Document documentFromStorage : DocumentStorage.data) {
-					if (documentFromStorage.getId() == documentId) {
-						out.write(documentFromStorage.toString().replace(",", "<br>"));
-						authorId = documentFromStorage.getAuthor().getId() + "";
+				if (request.getParameter("id") != null) {
+					String id = (String) request.getParameter("id");
+					int documentId = Integer.parseInt((String) request.getParameter("id"));
+					for (Document documentFromStorage : DocumentStorage.data) {
+						if (documentFromStorage.getId() == documentId) {
+							out.write(documentFromStorage.toString().replace(",", "<br>"));
+							authorId = documentFromStorage.getAuthor().getId() + "";
+						}
 					}
-				}
+				} else
+					response.sendRedirect("authors.jsp");
 			%>
 		</div>
 		<br>
-		<div class='button' onclick="location.href='documentsOfAuthor.jsp?id=<%=authorId%>'">Назад</div>
+		<div class='button'
+			onclick="location.href='documentsOfAuthor.jsp?id=<%=authorId%>'">Назад</div>
 	</div>
 </body>
 </html>

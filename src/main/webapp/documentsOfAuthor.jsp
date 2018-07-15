@@ -28,23 +28,26 @@
 				Данный фрагмент кода формирует массив документов автора, создает строки таблицы с данными документов
 			--%>
 			<%
-				int authorId = Integer.parseInt((String) request.getParameter("id"));
-				//out.write(authorId + "");
-				List<Document> documentsOfAuthor = new ArrayList<Document>();
-				for (Document documentFromStorage : DocumentStorage.data) {
-					if (authorId == documentFromStorage.getAuthor().getId()) {
-						documentsOfAuthor.add(documentFromStorage);
-						//out.write(documentFromStorage.toString());
+				if (request.getParameter("id") != null) {
+					int authorId = Integer.parseInt((String) request.getParameter("id"));
+					//out.write(authorId + "");
+					List<Document> documentsOfAuthor = new ArrayList<Document>();
+					for (Document documentFromStorage : DocumentStorage.data) {
+						if (authorId == documentFromStorage.getAuthor().getId()) {
+							documentsOfAuthor.add(documentFromStorage);
+							//out.write(documentFromStorage.toString());
+						}
 					}
-				}
-				for (Document document : documentsOfAuthor) {
+					for (Document document : documentsOfAuthor) {
 
-					out.write("<tr onclick=location.href='document.jsp?id=" + document.getId() + "'>");
-					out.write("<td>" + document.getId() + "</td><td>" + document.getName() + "</td><td>"
-							+ FormatUtil.formatDate(document.getRegistrationDate()) + "</td><td>"
-							+ document.getRegistrationNumber() + "</td>");
-					out.write("</tr>");
-				}
+						out.write("<tr onclick=location.href='document.jsp?id=" + document.getId() + "'>");
+						out.write("<td>" + document.getId() + "</td><td>" + document.getName() + "</td><td>"
+								+ FormatUtil.formatDate(document.getRegistrationDate()) + "</td><td>"
+								+ document.getRegistrationNumber() + "</td>");
+						out.write("</tr>");
+					}
+				} else
+					response.sendRedirect("authors.jsp");
 			%>
 		
 	</table>
