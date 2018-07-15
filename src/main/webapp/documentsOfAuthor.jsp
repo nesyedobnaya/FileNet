@@ -18,10 +18,6 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<!-- Форма, содержащая скрытое поле ввода для передачи id выбранного документа -->
-	<form method="get" action="GetDocumentById" id="myform">
-		<INPUT type="hidden" id="documentInputId" name="documentId" value="">
-	</form>
 	<table id="tableDocuments">
 		<tr>
 			<th>ID</th>
@@ -32,7 +28,7 @@
 				Данный фрагмент кода формирует массив документов автора, создает строки таблицы с данными документов
 			--%>
 			<%
-				int authorId = Integer.parseInt((String) request.getAttribute("chosenAuthorId"));
+				int authorId = Integer.parseInt((String) request.getParameter("id"));
 				//out.write(authorId + "");
 				List<Document> documentsOfAuthor = new ArrayList<Document>();
 				for (Document documentFromStorage : DocumentStorage.data) {
@@ -43,7 +39,7 @@
 				}
 				for (Document document : documentsOfAuthor) {
 
-					out.write("<tr onclick='setParameter(this)'>");
+					out.write("<tr onclick=location.href='document.jsp?id=" + document.getId() + "'>");
 					out.write("<td>" + document.getId() + "</td><td>" + document.getName() + "</td><td>"
 							+ FormatUtil.formatDate(document.getRegistrationDate()) + "</td><td>"
 							+ document.getRegistrationNumber() + "</td>");
@@ -52,16 +48,6 @@
 			%>
 		
 	</table>
-	<div class='backButton' onclick="location.href='author.jsp'">Назад</div>
+	<div class='button' onclick="location.href='authors.jsp'">Назад</div>
 </body>
-<!-- Функция извлекает id документа из выбранной строки, записывает id в поле ввода, отправляет форму на обработку -->
-<script type="text/javascript">
-	function setParameter(x) {
-		var table = document.getElementById('tableDocuments');
-		document.getElementById('documentInputId').value = table.rows[x.rowIndex].cells[0].innerHTML;
-		//alert(document.getElementById('documentInputId').value);
-		var form = document.getElementById('myform');
-		form.submit();
-	}
-</script>
 </html>

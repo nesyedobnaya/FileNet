@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <%@ page
 	import="main.java.ru.grusha.model.staff.Person,
     main.java.ru.grusha.storage.DocumentStorage,  
@@ -14,10 +13,6 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<!-- Форма, содержащая скрытое поле ввода для передачи id выбранного автора -->
-	<form method="get" action="GetAuthorById" id="myform">
-		<INPUT type="hidden" id="authorInputId" name="authorId" value="">
-	</form>
 	<table id="tableAuthors">
 		<tr>
 			<th>ID</th>
@@ -32,24 +27,13 @@
 				TreeSet<Person> setOfAuthors = ReportUtil.authorsToSet(DocumentStorage.data);
 				for (Person authorFromSet : setOfAuthors) {
 
-					out.write("<tr onclick='setParameter(this)'>");
+					out.write("<tr onclick=location.href='documentsOfAuthor.jsp?id=" + authorFromSet.getId() + "'>");
 					out.write("<td>" + authorFromSet.getId() + "</td><td>" + authorFromSet.getLastName() + "</td><td>"
 							+ authorFromSet.getFirstName() + "</td><td>" + authorFromSet.getPatronymic() + "</td><td>"
 							+ authorFromSet.getPosition() + "</td>");
 					out.write("</tr>");
 				}
 			%>
-		
 	</table>
 </body>
-<!-- Функция извлекает id автора из выбранной строки, записывает id в поле ввода, отправляет форму на обработку -->
-<script type="text/javascript">
-	function setParameter(x) {
-		var table = document.getElementById('tableAuthors');
-		document.getElementById('authorInputId').value = table.rows[x.rowIndex].cells[0].innerHTML;
-		//alert(document.getElementById('authorInputId').value);
-		var form = document.getElementById('myform');
-		form.submit();
-	}
-</script>
 </html>

@@ -22,7 +22,8 @@
 	--%>
 			<%
 				String authorId = "";
-				int documentId = Integer.parseInt((String) request.getAttribute("chosenDocumentId"));
+			String id=(String) request.getParameter("id");
+				int documentId = Integer.parseInt((String) request.getParameter("id"));
 				for (Document documentFromStorage : DocumentStorage.data) {
 					if (documentFromStorage.getId() == documentId) {
 						out.write(documentFromStorage.toString().replace(",", "<br>"));
@@ -31,20 +32,8 @@
 				}
 			%>
 		</div>
-		<!-- Форма, содержащая скрытое поле ввода для передачи id выбранного автора -->
-		<form method="get" action="GetAuthorById" id="myform">
-			<INPUT type="hidden" id="authorInputId" name="authorId" value="">
-		</form>
-		<div class='backButton' onclick='setParameter(this)'>Назад</div>
+		<br>
+		<div class='button' onclick="location.href='documentsOfAuthor.jsp?id=<%=authorId%>'">Назад</div>
 	</div>
 </body>
-<!-- Функция записывает id автора в поле ввода, отправляет форму на обработку -->
-<script type="text/javascript">
-	function setParameter(x) {
-		document.getElementById('authorInputId').value =<%=authorId%>;
-		//alert(document.getElementById('authorInputId').value);
-		var form = document.getElementById('myform');
-		form.submit();
-	}
-</script>
 </html>

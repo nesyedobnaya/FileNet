@@ -30,6 +30,6 @@
 		}
 	%>
 	<!-- Переход на страницу со списком авторов документов -->
-	<div onclick="location.href='author.jsp'">Авторы документов</div>
+	<div class="button" onclick="location.href='authors.jsp'">Авторы документов</div>
 </body>
 </html>

@@ -31,20 +31,4 @@
 		<servlet-name>documentContent</servlet-name>
 		<url-pattern>/documentContent</url-pattern>
 	</servlet-mapping>
-	<servlet>
-		<servlet-name>cocoon</servlet-name>
-		<jsp-file>/cocoon.jsp</jsp-file>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>cocoon</servlet-name>
-		<url-pattern>/cocoon</url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<servlet-name>butterfly</servlet-name>
-		<jsp-file>/butterfly.jsp</jsp-file>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>butterfly</servlet-name>
-		<url-pattern>/butterfly</url-pattern>
-	</servlet-mapping>
 </web-app>
